@@ -1,3 +1,121 @@
+@import '@fontsource-variable/inter';
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+:root {
+	--color-bg: #f7f8f8;
+	--color-text: #111315;
+	--color-muted: #3f4548;
+	--color-subtle: #606b70;
+	--color-soft: #eef2f3;
+	--color-surface: #ffffff;
+	--color-line: #e8edef;
+	--color-accent: #3f8c95;
+	--color-accent-strong: #2f7078;
+	--color-accent-soft: #edf6f7;
+	--color-accent-line: #b7cfd2;
+	--color-accent-text: #2c6369;
+	--color-nav-bg: rgb(255 255 255 / 0.72);
+	--color-on-accent: #f5fbfc;
+	--color-contact-start: #f1f7f8;
+	--color-contact-end: #f8fafb;
+	--color-contact-border: #d3e1e4;
+	--shadow-card: 0 12px 35px -30px rgb(13 13 13 / 0.45);
+	--shadow-card-hover: 0 20px 45px -30px rgb(13 13 13 / 0.55);
+	--page-atmosphere: radial-gradient(circle at top right, rgb(63 140 149 / 0.1), transparent 42%),
+		radial-gradient(circle at top left, rgb(24 24 24 / 0.05), transparent 48%);
+	--hero-glow: linear-gradient(90deg, rgb(12 14 16 / 0.06), rgb(12 14 16 / 0.03) 45%, rgb(63 140 149 / 0.16));
+}
+
+[data-theme='dark'] {
+	--color-bg: #090d0e;
+	--color-text: #eef2f3;
+	--color-muted: #b5c0c3;
+	--color-subtle: #909ea3;
+	--color-soft: #12191b;
+	--color-surface: #101618;
+	--color-line: #1d2a2f;
+	--color-accent: #5ea9b1;
+	--color-accent-strong: #7fbfc6;
+	--color-accent-soft: #112125;
+	--color-accent-line: #425e65;
+	--color-accent-text: #a4d4da;
+	--color-nav-bg: rgb(9 13 14 / 0.72);
+	--color-on-accent: #041316;
+	--color-contact-start: #11191c;
+	--color-contact-end: #0d1214;
+	--color-contact-border: #324c53;
+	--shadow-card: 0 18px 42px -28px rgb(0 0 0 / 0.62);
+	--shadow-card-hover: 0 24px 52px -28px rgb(0 0 0 / 0.74);
+	--page-atmosphere: radial-gradient(circle at top right, rgb(94 169 177 / 0.15), transparent 44%),
+		radial-gradient(circle at top left, rgb(245 245 244 / 0.07), transparent 52%);
+	--hero-glow: linear-gradient(90deg, rgb(245 245 244 / 0.06), rgb(245 245 244 / 0.03) 45%, rgb(94 169 177 / 0.18));
+}
+
+@theme {
+	--font-sans: 'Inter Variable', 'Inter', 'Avenir Next', 'Segoe UI', sans-serif;
+}
+
+html,
+body {
+	margin: 0;
+	min-height: 100%;
+	background: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-sans);
+	text-rendering: geometricPrecision;
+	-webkit-font-smoothing: antialiased;
+	scroll-behavior: smooth;
+	transition: background-color 280ms ease, color 280ms ease;
+}
+
+::selection {
+	background: color-mix(in oklab, var(--color-accent) 26%, white);
+	color: var(--color-text);
+}
+
+.page-atmosphere {
+	background: var(--page-atmosphere);
+}
+
+.section-label {
+	display: inline-flex;
+	border-radius: 999px;
+	border: 1px solid var(--color-accent-line);
+	background: var(--color-accent-soft);
+	padding: 0.35rem 0.75rem;
+	font-size: 0.74rem;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--color-accent-text);
+}
+
+.section-heading {
+	font-size: clamp(1.9rem, 4.3vw, 3rem);
+	line-height: 1.08;
+	letter-spacing: -0.04em;
+	font-weight: 600;
+	color: var(--color-text);
+}
+
+.content-measure {
+	max-width: 62ch;
+}
+
+.no-scrollbar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+	display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html,
+	body {
+		scroll-behavior: auto;
+	}
+}

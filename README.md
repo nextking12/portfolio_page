@@ -1,43 +1,39 @@
-# sv
+# Portfolio Page
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Modern single-page developer portfolio built with SvelteKit, Tailwind CSS v4, and a light/dark theme system.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Minimal black/white visual style with muted cyan accents
+- Sticky nav with active section highlight and theme toggle
+- Subtle reveal-on-scroll section animations
+- Responsive layout for desktop and mobile
+- Centralized content data for quick editing
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Tech Stack
 
-To recreate this project with the same configuration:
+- SvelteKit (Svelte 5)
+- TypeScript
+- Tailwind CSS v4
+- Inter Variable font (`@fontsource-variable/inter`)
 
-```sh
-# recreate this project
-pnpm dlx sv@0.16.2 create --template minimal --types ts --add prettier eslint vitest="usages:unit,component" tailwindcss="plugins:typography,forms" sveltekit-adapter="adapter:vercel" --install pnpm portfolio_page
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Getting Started
 
 ```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm install
+pnpm dev -- --open
 ```
 
-## Building
+## Content Editing
 
-To create a production version of your app:
+- Update profile, project cards, skills, and contact links in `src/lib/data/site.ts`.
+- Global theme tokens (colors, surfaces, spacing feel) live in `src/routes/layout.css`.
+
+## Scripts
 
 ```sh
-npm run build
+pnpm dev
+pnpm check
+pnpm build
+pnpm preview
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-# portfolio_page
