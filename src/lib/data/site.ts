@@ -38,14 +38,14 @@ export const navItems: NavItem[] = [
 ];
 
 export const profile: Profile = {
-	name: 'Your Name',
-	role: 'Software Engineer',
-	tagline: 'I build thoughtful digital products with a focus on speed, clarity, and polish.',
+	name: 'Edward King',
+	role: 'Full-Stack JavaScript Engineer',
+	tagline: 'I build fast, accessible web products with SvelteKit, TypeScript, and clean UI systems.',
 	intro:
-		'TODO: Replace this with a concise two to three sentence introduction that explains your value and what kinds of products you enjoy building.',
+		'I focus on shipping maintainable applications that feel polished in everyday use. I enjoy turning ambiguous product ideas into clear technical plans and reliable releases.',
 	about: [
-		'TODO: Add a short background paragraph. Mention your years of experience, product domains, or the type of teams you have worked with.',
-		'TODO: Add a second paragraph with your engineering style. You might include collaboration, ownership, performance, accessibility, or DX priorities.'
+		'I am a product-minded engineer who likes working across frontend and backend to deliver complete user experiences. My recent work centers on modern JavaScript stacks, responsive interfaces, and scalable component architecture.',
+		'I care about clear communication, practical code quality, and steady iteration. Whether I am building a feature from scratch or improving an existing system, I prioritize performance, accessibility, and developer experience so teams can move faster with confidence.'
 	]
 };
 
