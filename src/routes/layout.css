@@ -3,54 +3,40 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+/* Dark is the default. Light is opt-in via [data-theme='light']. */
 :root {
-	--color-bg: #f7f8f8;
-	--color-text: #111315;
-	--color-muted: #3f4548;
-	--color-subtle: #606b70;
-	--color-soft: #eef2f3;
-	--color-surface: #ffffff;
-	--color-line: #e8edef;
-	--color-accent: #3f8c95;
-	--color-accent-strong: #2f7078;
-	--color-accent-soft: #edf6f7;
-	--color-accent-line: #b7cfd2;
-	--color-accent-text: #2c6369;
-	--color-nav-bg: rgb(255 255 255 / 0.72);
-	--color-on-accent: #f5fbfc;
-	--color-contact-start: #f1f7f8;
-	--color-contact-end: #f8fafb;
-	--color-contact-border: #d3e1e4;
-	--shadow-card: 0 12px 35px -30px rgb(13 13 13 / 0.45);
-	--shadow-card-hover: 0 20px 45px -30px rgb(13 13 13 / 0.55);
-	--page-atmosphere: radial-gradient(circle at top right, rgb(63 140 149 / 0.1), transparent 42%),
-		radial-gradient(circle at top left, rgb(24 24 24 / 0.05), transparent 48%);
-	--hero-glow: linear-gradient(90deg, rgb(12 14 16 / 0.06), rgb(12 14 16 / 0.03) 45%, rgb(63 140 149 / 0.16));
-}
+	--color-bg: #000000;
+	--color-surface: transparent;
+	--color-text: #ffffff;
+	--color-text-soft: #a1a1a1;
+	--color-muted: #6b6b6b;
+	--color-line: rgb(255 255 255 / 0.08);
+	--color-line-strong: rgb(255 255 255 / 0.16);
+	--color-nav-bg: rgb(0 0 0 / 0.65);
 
-[data-theme='dark'] {
-	--color-bg: #090d0e;
-	--color-text: #eef2f3;
-	--color-muted: #b5c0c3;
-	--color-subtle: #909ea3;
-	--color-soft: #12191b;
-	--color-surface: #101618;
-	--color-line: #1d2a2f;
+	/* Teal reserved for hover / focus / active accents. */
 	--color-accent: #5ea9b1;
 	--color-accent-strong: #7fbfc6;
-	--color-accent-soft: #112125;
-	--color-accent-line: #425e65;
-	--color-accent-text: #a4d4da;
-	--color-nav-bg: rgb(9 13 14 / 0.72);
+	--color-accent-soft: rgb(94 169 177 / 0.12);
 	--color-on-accent: #041316;
-	--color-contact-start: #11191c;
-	--color-contact-end: #0d1214;
-	--color-contact-border: #324c53;
-	--shadow-card: 0 18px 42px -28px rgb(0 0 0 / 0.62);
-	--shadow-card-hover: 0 24px 52px -28px rgb(0 0 0 / 0.74);
-	--page-atmosphere: radial-gradient(circle at top right, rgb(94 169 177 / 0.15), transparent 44%),
-		radial-gradient(circle at top left, rgb(245 245 244 / 0.07), transparent 52%);
-	--hero-glow: linear-gradient(90deg, rgb(245 245 244 / 0.06), rgb(245 245 244 / 0.03) 45%, rgb(94 169 177 / 0.18));
+
+	--shadow-focus: 0 0 0 2px var(--color-accent);
+}
+
+[data-theme='light'] {
+	--color-bg: #fafafa;
+	--color-surface: transparent;
+	--color-text: #0a0a0a;
+	--color-text-soft: #4a4a4a;
+	--color-muted: #8a8a8a;
+	--color-line: rgb(0 0 0 / 0.08);
+	--color-line-strong: rgb(0 0 0 / 0.16);
+	--color-nav-bg: rgb(250 250 250 / 0.72);
+
+	--color-accent: #2f7078;
+	--color-accent-strong: #3f8c95;
+	--color-accent-soft: rgb(47 112 120 / 0.1);
+	--color-on-accent: #f5fbfc;
 }
 
 @theme {
@@ -64,44 +50,45 @@ body {
 	background: var(--color-bg);
 	color: var(--color-text);
 	font-family: var(--font-sans);
+	font-feature-settings: 'ss01', 'cv11';
 	text-rendering: geometricPrecision;
 	-webkit-font-smoothing: antialiased;
 	scroll-behavior: smooth;
-	transition: background-color 280ms ease, color 280ms ease;
+	transition:
+		background-color 320ms ease,
+		color 320ms ease;
 }
 
 ::selection {
-	background: color-mix(in oklab, var(--color-accent) 26%, white);
-	color: var(--color-text);
-}
-
-.page-atmosphere {
-	background: var(--page-atmosphere);
+	background: var(--color-accent);
+	color: var(--color-on-accent);
 }
 
 .section-label {
-	display: inline-flex;
-	border-radius: 999px;
-	border: 1px solid var(--color-accent-line);
-	background: var(--color-accent-soft);
-	padding: 0.35rem 0.75rem;
-	font-size: 0.74rem;
-	font-weight: 600;
-	letter-spacing: 0.06em;
+	display: inline-block;
+	font-size: 0.7rem;
+	font-weight: 500;
+	letter-spacing: 0.24em;
 	text-transform: uppercase;
-	color: var(--color-accent-text);
+	color: var(--color-muted);
 }
 
 .section-heading {
-	font-size: clamp(1.9rem, 4.3vw, 3rem);
-	line-height: 1.08;
-	letter-spacing: -0.04em;
-	font-weight: 600;
+	font-size: clamp(2rem, 5vw, 3.5rem);
+	line-height: 1.02;
+	letter-spacing: -0.035em;
+	font-weight: 500;
 	color: var(--color-text);
 }
 
 .content-measure {
 	max-width: 62ch;
+}
+
+.hairline {
+	height: 1px;
+	background: var(--color-line);
+	width: 100%;
 }
 
 .no-scrollbar {
@@ -111,6 +98,32 @@ body {
 
 .no-scrollbar::-webkit-scrollbar {
 	display: none;
+}
+
+.link-arrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: var(--color-text);
+	transition: color 240ms ease;
+}
+
+.link-arrow:hover {
+	color: var(--color-accent-strong);
+}
+
+.link-arrow svg {
+	transition: transform 240ms ease;
+}
+
+.link-arrow:hover svg {
+	transform: translateX(4px);
+}
+
+*:focus-visible {
+	outline: none;
+	box-shadow: var(--shadow-focus);
+	border-radius: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

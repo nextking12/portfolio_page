@@ -10,9 +10,9 @@ export type RevealOptions = {
 
 const DEFAULTS: Required<RevealOptions> = {
 	delay: 0,
-	distance: 18,
-	duration: 600,
-	threshold: 0.2,
+	distance: 10,
+	duration: 700,
+	threshold: 0.15,
 	once: true
 };
 

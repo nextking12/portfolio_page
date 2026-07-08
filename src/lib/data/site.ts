@@ -15,6 +15,7 @@ export type Project = {
 	title: string;
 	description: string;
 	tags: string[];
+	year: string;
 	repo: string;
 	live: string;
 };
@@ -24,9 +25,13 @@ export type SkillGroup = {
 	items: string[];
 };
 
+export type SocialPlatform = 'github' | 'linkedin' | 'email' | 'twitter' | 'website';
+
 export type SocialLink = {
 	label: string;
+	handle: string;
 	href: string;
+	platform: SocialPlatform;
 };
 
 export const navItems: NavItem[] = [
@@ -40,7 +45,8 @@ export const navItems: NavItem[] = [
 export const profile: Profile = {
 	name: 'Edward King',
 	role: 'Full-Stack JavaScript Engineer',
-	tagline: 'I build fast, accessible web products with SvelteKit, TypeScript, and clean UI systems.',
+	tagline:
+		'I build fast, accessible web products with SvelteKit, TypeScript, and clean UI systems.',
 	intro:
 		'I focus on shipping maintainable applications that feel polished in everyday use. I enjoy turning ambiguous product ideas into clear technical plans and reliable releases.',
 	about: [
@@ -55,6 +61,7 @@ export const projects: Project[] = [
 		description:
 			'TODO: Describe the core problem, your solution, and one measurable outcome. Keep it to two short lines.',
 		tags: ['SvelteKit', 'TypeScript', 'Tailwind'],
+		year: '2026',
 		repo: 'https://github.com/your-username/project-one',
 		live: 'https://project-one.example.com'
 	},
@@ -63,6 +70,7 @@ export const projects: Project[] = [
 		description:
 			'TODO: Highlight architecture choices, performance improvements, or a technical challenge you solved.',
 		tags: ['Node.js', 'PostgreSQL', 'REST API'],
+		year: '2025',
 		repo: 'https://github.com/your-username/project-two',
 		live: 'https://project-two.example.com'
 	},
@@ -71,6 +79,7 @@ export const projects: Project[] = [
 		description:
 			'TODO: Showcase product impact, test strategy, or reliability work. Keep each project story outcome-oriented.',
 		tags: ['React', 'Playwright', 'CI/CD'],
+		year: '2024',
 		repo: 'https://github.com/your-username/project-three',
 		live: 'https://project-three.example.com'
 	}
@@ -82,8 +91,31 @@ export const skillGroups: SkillGroup[] = [
 	{ title: 'Workflow', items: ['GitHub Actions', 'Playwright', 'Vitest', 'Vercel', 'Figma'] }
 ];
 
+export const email = 'you@example.com';
+
 export const socials: SocialLink[] = [
-	{ label: 'Email', href: 'mailto:you@example.com' },
-	{ label: 'GitHub', href: 'https://github.com/your-username' },
-	{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-profile/' }
+	{
+		label: 'GitHub',
+		handle: '@your-username',
+		href: 'https://github.com/your-username',
+		platform: 'github'
+	},
+	{
+		label: 'LinkedIn',
+		handle: 'your-profile',
+		href: 'https://www.linkedin.com/in/your-profile/',
+		platform: 'linkedin'
+	},
+	{
+		label: 'Email',
+		handle: email,
+		href: `mailto:${email}`,
+		platform: 'email'
+	},
+	{
+		label: 'Website',
+		handle: 'your-domain.com',
+		href: 'https://your-domain.com',
+		platform: 'website'
+	}
 ];

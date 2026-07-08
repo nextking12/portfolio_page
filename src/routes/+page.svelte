@@ -6,11 +6,12 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import Projects from '$lib/components/Projects.svelte';
+	import ScrollRail from '$lib/components/ScrollRail.svelte';
 	import Skills from '$lib/components/Skills.svelte';
 	import { navItems, profile, projects, skillGroups, socials } from '$lib/data/site';
 
 	type Theme = 'light' | 'dark';
-	let theme = $state<Theme>('light');
+	let theme = $state<Theme>('dark');
 
 	onMount(() => {
 		const savedTheme = window.localStorage.getItem('theme');
@@ -19,7 +20,8 @@
 			return;
 		}
 
-		theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		// Default to dark; only flip to light if user explicitly prefers it.
+		theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 	});
 
 	$effect(() => {
@@ -37,9 +39,9 @@
 </script>
 
 <div class="relative min-h-screen overflow-x-clip bg-[var(--color-bg)] text-[var(--color-text)]">
-	<div class="page-atmosphere pointer-events-none absolute inset-x-0 top-0 -z-10 h-[42rem]"></div>
-
 	<Nav items={navItems} {theme} {toggleTheme} />
+	<ScrollRail items={navItems} />
+
 	<main>
 		<Hero {profile} />
 		<About about={profile.about} />
@@ -47,5 +49,5 @@
 		<Skills groups={skillGroups} />
 		<Contact links={socials} />
 	</main>
-	<Footer />
+	<Footer {theme} {toggleTheme} />
 </div>
