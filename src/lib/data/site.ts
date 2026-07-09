@@ -43,36 +43,37 @@ export const navItems: NavItem[] = [
 ];
 
 export const profile: Profile = {
-	name: 'Edward King',
-	role: 'Full-Stack JavaScript Engineer',
+	name: 'Jay King',
+	role: 'Full-Stack Engineer',
 	tagline:
-		'I build fast, accessible web products with SvelteKit, TypeScript, and clean UI systems.',
+		'I build fast, accessible web products with modern and clean UI systems.',
 	intro:
-		'I focus on shipping maintainable applications that feel polished in everyday use. I enjoy turning ambiguous product ideas into clear technical plans and reliable releases.',
+		'I focus on shipping maintainable applications that feel polished in everyday use. I enjoy turning product ideas into clear technical plans and reliable releases.',
 	about: [
-		'I am a product-minded engineer who likes working across frontend and backend to deliver complete user experiences. My recent work centers on modern JavaScript stacks, responsive interfaces, and scalable component architecture.',
+		'I am an engineer who likes working across frontend and backend to deliver complete user experiences. My recent work centers on modern JavaScript stacks, responsive interfaces, and scalable component architecture.',
 		'I care about clear communication, practical code quality, and steady iteration. Whether I am building a feature from scratch or improving an existing system, I prioritize performance, accessibility, and developer experience so teams can move faster with confidence.'
 	]
 };
 
 export const projects: Project[] = [
 	{
-		title: 'Project One',
+		title: 'PhySec.Dash',
 		description:
-			'TODO: Describe the core problem, your solution, and one measurable outcome. Keep it to two short lines.',
-		tags: ['SvelteKit', 'TypeScript', 'Tailwind'],
+			'A full-stack physical security operations dashboard. The current version manages security devices such as cameras, card readers, alarm panels, and motion sensors. This project is built as a portfolio-ready app with a Spring Boot API, PostgreSQL persistence, Flyway migrations, JWT authentication, role-based access control, audit logging, integration tests, and a React dashboard frontend.',
+			
+		tags: ['Java', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
 		year: '2026',
-		repo: 'https://github.com/your-username/project-one',
-		live: 'https://project-one.example.com'
+		repo: 'https://github.com/nextking12/physec-dashboard',
+		live: 'https://physec-dashboard.vercel.app'
 	},
 	{
-		title: 'Project Two',
+		title: 'Open ACS',
 		description:
-			'TODO: Highlight architecture choices, performance improvements, or a technical challenge you solved.',
-		tags: ['Node.js', 'PostgreSQL', 'REST API'],
+			'Open ACS is a Next.js learning platform for physical access control systems. The current app has a small vertical slice: Postgres for storage, Prisma for the data layer, seed content for an access control fundamentals course, and a /courses page that reads from the database.',
+		tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma'],
 		year: '2025',
-		repo: 'https://github.com/your-username/project-two',
-		live: 'https://project-two.example.com'
+		repo: 'https://github.com/nextking12/open_acs',
+		live: ''
 	},
 	{
 		title: 'Project Three',

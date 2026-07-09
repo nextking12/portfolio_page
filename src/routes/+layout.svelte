@@ -7,7 +7,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Your Name | Software Engineer</title>
+	<title>Jay King|Software Engineer</title>
 	<meta
 		name="description"
 		content="Modern software engineer portfolio with selected projects, technical skills, and contact links."

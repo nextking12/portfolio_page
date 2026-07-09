@@ -62,28 +62,41 @@
 					<div
 						class="flex items-center gap-3 text-[var(--color-muted)] md:flex-col md:items-end md:gap-2"
 					>
-						<span class="text-xs tabular-nums tracking-widest md:order-last">
-							{project.year}
-						</span>
+						<div class="flex items-center gap-3 md:order-last md:flex-col md:items-end md:gap-1">
+							<span class="text-xs tabular-nums tracking-widest">
+								{project.year}
+							</span>
+							{#if !project.live}
+								<span
+									class="text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--color-accent-strong)]"
+								>
+									Deploying soon
+								</span>
+							{/if}
+						</div>
 						<div class="flex items-center gap-2">
-							<a
-								href={project.repo}
-								target="_blank"
-								rel="noreferrer"
-								aria-label="{project.title} repository"
-								class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-line)] transition-all duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)]"
-							>
-								<Code2 size={13} strokeWidth={1.75} />
-							</a>
-							<a
-								href={project.live}
-								target="_blank"
-								rel="noreferrer"
-								aria-label="{project.title} live site"
-								class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-line)] transition-all duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)]"
-							>
-								<ArrowUpRight size={13} strokeWidth={1.75} />
-							</a>
+							{#if project.repo}
+								<a
+									href={project.repo}
+									target="_blank"
+									rel="noreferrer"
+									aria-label="{project.title} repository"
+									class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-line)] transition-all duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)]"
+								>
+									<Code2 size={13} strokeWidth={1.75} />
+								</a>
+							{/if}
+							{#if project.live}
+								<a
+									href={project.live}
+									target="_blank"
+									rel="noreferrer"
+									aria-label="{project.title} live site"
+									class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-line)] transition-all duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)]"
+								>
+									<ArrowUpRight size={13} strokeWidth={1.75} />
+								</a>
+							{/if}
 						</div>
 					</div>
 				</div>
