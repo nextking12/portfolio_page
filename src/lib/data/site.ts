@@ -25,7 +25,7 @@ export type SkillGroup = {
 	items: string[];
 };
 
-export type SocialPlatform = 'github' | 'linkedin' | 'email' | 'twitter' | 'website';
+export type SocialPlatform = 'github' | 'linkedin' | 'twitter';
 
 export type SocialLink = {
 	label: string;
@@ -92,31 +92,23 @@ export const skillGroups: SkillGroup[] = [
 	{ title: 'Workflow', items: ['GitHub Actions', 'Playwright', 'Vitest', 'Vercel'] }
 ];
 
-export const email = 'you@example.com';
-
 export const socials: SocialLink[] = [
 	{
 		label: 'GitHub',
-		handle: '@your-username',
-		href: 'https://github.com/your-username',
+		handle: '@nextking12',
+		href: 'https://github.com/nextking12',
 		platform: 'github'
 	},
 	{
 		label: 'LinkedIn',
-		handle: 'your-profile',
-		href: 'https://www.linkedin.com/in/your-profile/',
+		handle: 'Edward King Jr.',
+		href: 'https://www.linkedin.com/in/edward-king-jr-385114251/',
 		platform: 'linkedin'
 	},
 	{
-		label: 'Email',
-		handle: email,
-		href: `mailto:${email}`,
-		platform: 'email'
-	},
-	{
-		label: 'Website',
-		handle: 'your-domain.com',
-		href: 'https://your-domain.com',
-		platform: 'website'
+		label: 'X',
+		handle: '@nextking12_dev',
+		href: 'https://x.com/nextking12_dev',
+		platform: 'twitter'
 	}
 ];
