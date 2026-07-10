@@ -75,21 +75,21 @@ export const projects: Project[] = [
 		repo: 'https://github.com/nextking12/open_acs',
 		live: ''
 	},
-	{
-		title: 'Project Three',
-		description:
-			'TODO: Showcase product impact, test strategy, or reliability work. Keep each project story outcome-oriented.',
-		tags: ['React', 'Playwright', 'CI/CD'],
-		year: '2024',
-		repo: 'https://github.com/your-username/project-three',
-		live: 'https://project-three.example.com'
-	}
+	// {
+	// 	title: 'Project Three',
+	// 	description:
+	// 		'TODO: Showcase product impact, test strategy, or reliability work. Keep each project story outcome-oriented.',
+	// 	tags: ['React', 'Playwright', 'CI/CD'],
+	// 	year: '2024',
+	// 	repo: 'https://github.com/your-username/project-three',
+	// 	live: 'https://project-three.example.com'
+	// }
 ];
 
 export const skillGroups: SkillGroup[] = [
-	{ title: 'Frontend', items: ['Svelte', 'React', 'TypeScript', 'Tailwind CSS', 'Accessibility'] },
-	{ title: 'Backend', items: ['Node.js', 'Express', 'PostgreSQL', 'REST', 'GraphQL'] },
-	{ title: 'Workflow', items: ['GitHub Actions', 'Playwright', 'Vitest', 'Vercel', 'Figma'] }
+	{ title: 'Frontend', items: ['React', 'TypeScript', 'Tailwind CSS'] },
+	{ title: 'Backend', items: ['Java', 'Spring Boot', 'PostgreSQL', 'REST'] },
+	{ title: 'Workflow', items: ['GitHub Actions', 'Playwright', 'Vitest', 'Vercel'] }
 ];
 
 export const email = 'you@example.com';
