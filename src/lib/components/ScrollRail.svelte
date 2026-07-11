@@ -32,7 +32,7 @@
 	aria-hidden="true"
 	class="pointer-events-none fixed left-4 top-1/2 z-30 hidden -translate-y-1/2 flex-col gap-3 md:flex"
 >
-	{#each items as item}
+	{#each items as item (item.href)}
 		<a
 			href={item.href}
 			aria-label={item.label}

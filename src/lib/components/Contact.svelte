@@ -23,12 +23,12 @@
 			<p class="section-label">Elsewhere</p>
 
 			<ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-				{#each links as link, index}
+				{#each links as link, index (link.href)}
 					<li>
 						<a
 							href={link.href}
 							target="_blank"
-							rel="noreferrer"
+							rel="noopener noreferrer"
 							class="group relative flex h-full flex-col justify-between gap-6 rounded-lg border border-[var(--color-line)] p-5 transition-all duration-300 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent-soft)]"
 							use:reveal={{ delay: 160 + 60 * index }}
 						>

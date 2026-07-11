@@ -33,8 +33,15 @@
 			{profile.intro}
 		</p>
 
+		<p
+			use:reveal={{ delay: 220 }}
+			class="text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-accent-strong)]"
+		>
+			Open to freelance and contract engagements
+		</p>
+
 		<div
-			use:reveal={{ delay: 260 }}
+			use:reveal={{ delay: 300 }}
 			class="flex flex-wrap items-center gap-x-8 gap-y-4 pt-2 text-sm"
 		>
 			<a href="#projects" class="link-arrow">

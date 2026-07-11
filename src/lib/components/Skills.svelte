@@ -16,7 +16,7 @@
 	<div
 		class="grid gap-px overflow-hidden rounded-lg border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-3"
 	>
-		{#each groups as group, index}
+		{#each groups as group, index (group.title)}
 			<section
 				use:reveal={{ delay: 80 * (index + 1) }}
 				class="group bg-[var(--color-bg)] p-8 transition-colors duration-300 hover:bg-[var(--color-accent-soft)]"
@@ -32,7 +32,7 @@
 					</span>
 				</div>
 				<ul class="mt-6 space-y-3">
-					{#each group.items as item}
+					{#each group.items as item (item)}
 						<li class="text-base font-medium tracking-tight text-[var(--color-text)]">
 							{item}
 						</li>

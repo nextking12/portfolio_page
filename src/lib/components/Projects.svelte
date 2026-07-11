@@ -20,7 +20,7 @@
 	</div>
 
 	<ul class="border-t border-[var(--color-line)]">
-		{#each projects as project, index}
+		{#each projects as project, index (project.title)}
 			<li use:reveal={{ delay: 60 * (index + 1) }} class="border-b border-[var(--color-line)]">
 				<div
 					class="group relative grid grid-cols-1 gap-4 py-8 transition-colors md:grid-cols-[1fr_2fr_auto] md:items-center md:gap-8 md:py-10"
@@ -49,7 +49,7 @@
 							{project.description}
 						</p>
 						<ul class="flex flex-wrap gap-x-3 gap-y-1">
-							{#each project.tags as tag}
+							{#each project.tags as tag (tag)}
 								<li
 									class="text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--color-muted)]"
 								>
@@ -63,9 +63,6 @@
 						class="flex items-center gap-3 text-[var(--color-muted)] md:flex-col md:items-end md:gap-2"
 					>
 						<div class="flex items-center gap-3 md:order-last md:flex-col md:items-end md:gap-1">
-							<span class="text-xs tabular-nums tracking-widest">
-								{project.year}
-							</span>
 							{#if !project.live}
 								<span
 									class="text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--color-accent-strong)]"
@@ -79,7 +76,7 @@
 								<a
 									href={project.repo}
 									target="_blank"
-									rel="noreferrer"
+									rel="noopener noreferrer"
 									aria-label="{project.title} repository"
 									class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-line)] transition-all duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)]"
 								>
@@ -90,7 +87,7 @@
 								<a
 									href={project.live}
 									target="_blank"
-									rel="noreferrer"
+									rel="noopener noreferrer"
 									aria-label="{project.title} live site"
 									class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[var(--color-line)] transition-all duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)]"
 								>

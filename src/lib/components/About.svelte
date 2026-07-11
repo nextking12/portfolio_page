@@ -12,12 +12,12 @@
 		<div use:reveal class="space-y-6">
 			<p class="section-label">About</p>
 			<h2 class="section-heading">
-				Engineering with intention<br />and product empathy.
+				Building polished,<br />dependable software with people in mind.
 			</h2>
 		</div>
 
 		<div class="content-measure space-y-6">
-			{#each about as paragraph, index}
+			{#each about as paragraph, index (index)}
 				<p
 					use:reveal={{ delay: 80 * (index + 1) }}
 					class="text-base leading-relaxed text-[var(--color-text-soft)] md:text-lg"

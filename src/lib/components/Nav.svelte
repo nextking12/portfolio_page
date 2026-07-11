@@ -49,7 +49,7 @@
 		<ul
 			class="no-scrollbar hidden items-center gap-8 overflow-x-auto text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-muted)] md:flex"
 		>
-			{#each items as item}
+			{#each items as item (item.href)}
 				<li>
 					<a
 						href={item.href}
@@ -85,7 +85,7 @@
 	<ul
 		class="no-scrollbar flex items-center justify-start gap-6 overflow-x-auto border-t border-[var(--color-line)] px-6 py-2 text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--color-muted)] md:hidden"
 	>
-		{#each items as item}
+		{#each items as item (item.href)}
 			<li>
 				<a
 					href={item.href}

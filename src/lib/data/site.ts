@@ -15,7 +15,6 @@ export type Project = {
 	title: string;
 	description: string;
 	tags: string[];
-	year: string;
 	repo: string;
 	live: string;
 };
@@ -43,15 +42,15 @@ export const navItems: NavItem[] = [
 ];
 
 export const profile: Profile = {
-	name: 'Jay King',
+	name: 'Edward King',
 	role: 'Full-Stack Engineer',
-	tagline:
-		'I build fast, accessible web products with modern and clean UI systems.',
+	tagline: 'I build fast, accessible web products with modern and clean UI systems.',
 	intro:
 		'I focus on shipping maintainable applications that feel polished in everyday use. I enjoy turning product ideas into clear technical plans and reliable releases.',
 	about: [
 		'I am an engineer who likes working across frontend and backend to deliver complete user experiences. My recent work centers on modern JavaScript stacks, responsive interfaces, and scalable component architecture.',
-		'I care about clear communication, practical code quality, and steady iteration. Whether I am building a feature from scratch or improving an existing system, I prioritize performance, accessibility, and developer experience so teams can move faster with confidence.'
+		'I care about clear communication, practical code quality, and steady iteration. Whether I am building a feature from scratch or improving an existing system, I prioritize performance, accessibility, and developer experience so teams can move faster with confidence.',
+		'I also know most people are not hiring code - they are hiring trust. I keep projects transparent, explain tradeoffs in plain language, and stay reliable from kickoff to launch so clients always know where things stand.'
 	]
 };
 
@@ -59,28 +58,25 @@ export const projects: Project[] = [
 	{
 		title: 'PhySec.Dash',
 		description:
-			'A full-stack physical security operations dashboard. The current version manages security devices such as cameras, card readers, alarm panels, and motion sensors. This project is built as a portfolio-ready app with a Spring Boot API, PostgreSQL persistence, Flyway migrations, JWT authentication, role-based access control, audit logging, integration tests, and a React dashboard frontend.',
-			
+			'PhySec.Dash gives security teams one dashboard to monitor cameras, card readers, alarm panels, and motion sensors with less operational friction. It is built with a Spring Boot API, PostgreSQL, Flyway migrations, JWT auth, role-based access control, audit logging, integration tests, and a React frontend.',
+
 		tags: ['Java', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
-		year: '2026',
 		repo: 'https://github.com/nextking12/physec-dashboard',
 		live: 'https://physec-dashboard.vercel.app'
 	},
 	{
-		title: 'Open ACS',
+		title: 'PhySec.Learn',
 		description:
-			'Open ACS is a Next.js learning platform for physical access control systems. The current app has a small vertical slice: Postgres for storage, Prisma for the data layer, seed content for an access control fundamentals course, and a /courses page that reads from the database.',
-		tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma'],
-		year: '2025',
+			"PhySec.Learn helps teams onboard faster with a no-login training experience for physical access control. Course content lives in Postgres with Prisma, while lesson progress stays private in each visitor's browser.",
+		tags: ['Next.js', 'PostgreSQL', 'Neon'],
 		repo: 'https://github.com/nextking12/open_acs',
-		live: ''
-	},
+		live: 'https://open-acs.vercel.app/'
+	}
 	// {
 	// 	title: 'Project Three',
 	// 	description:
 	// 		'TODO: Showcase product impact, test strategy, or reliability work. Keep each project story outcome-oriented.',
 	// 	tags: ['React', 'Playwright', 'CI/CD'],
-	// 	year: '2024',
 	// 	repo: 'https://github.com/your-username/project-three',
 	// 	live: 'https://project-three.example.com'
 	// }
