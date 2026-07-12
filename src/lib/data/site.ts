@@ -80,8 +80,8 @@ export const projects: Project[] = [
 	{
 		title: 'Smells Good Marketing',
 		description:
-			'A custom site for a marketing agency, built from scratch rather than a template. Includes a contact system that delivers inquiries straight to their inbox — no third-party form service, no monthly fee.',
-		tags: ['Next.js', 'TypeScript', 'Resend', 'Vercel'],
+			'A custom site for a marketing agency, built from scratch rather than a template. When someone reaches out, their message lands straight in the agency\'s inbox — no extra services, no monthly fees.',
+		tags: ['Next.js', 'TypeScript', 'Vercel'],
 		repo: '',
 		live: ''
 	},
