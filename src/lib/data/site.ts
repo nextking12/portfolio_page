@@ -83,7 +83,7 @@ export const projects: Project[] = [
 			'A custom site for a marketing agency, built from scratch rather than a template. When someone reaches out, their message lands straight in the agency\'s inbox — no extra services, no monthly fees.',
 		tags: ['Next.js', 'TypeScript', 'Vercel'],
 		repo: '',
-		live: ''
+		live: 'https://smells-good-rho.vercel.app/'
 	},
 	{
 		title: 'PhySec.Dash',
