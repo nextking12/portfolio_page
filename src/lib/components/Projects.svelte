@@ -15,7 +15,7 @@
 			<h2 class="section-heading max-w-xl">Projects.</h2>
 		</div>
 		<p class="content-measure text-sm text-[var(--color-muted)] md:max-w-xs md:text-right">
-			A short list of things I've shipped recently. Hover for details.
+			A short list of things I've shipped recently. Client work available on request.
 		</p>
 	</div>
 

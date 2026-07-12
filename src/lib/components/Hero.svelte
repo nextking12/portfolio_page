@@ -24,6 +24,11 @@
 			<p class="content-measure text-lg leading-relaxed text-[var(--color-text-soft)] md:text-xl">
 				{profile.tagline}
 			</p>
+			<p
+				class="content-measure text-lg font-medium leading-relaxed text-[var(--color-text)] md:text-xl"
+			>
+				{profile.heroLead}
+			</p>
 		</div>
 
 		<p
