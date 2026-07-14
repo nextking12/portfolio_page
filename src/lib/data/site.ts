@@ -22,6 +22,8 @@ export type Service = {
 export type Project = {
 	title: string;
 	category: string;
+	image: string;
+	imageAlt: string;
 	description: string;
 	outcome: string;
 	tags: string[];
@@ -109,6 +111,8 @@ export const projects: Project[] = [
 	{
 		title: 'Smells Good Marketing',
 		category: 'Client website',
+		image: '/projects/smells-good.jpg',
+		imageAlt: 'Smells Good Marketing homepage showing its short-form video service offer',
 		description:
 			"A custom site for a marketing agency, built from scratch rather than a template. When someone reaches out, their message lands straight in the agency's inbox — no extra services, no monthly fees.",
 		outcome: 'A distinct, mobile-ready brand presence with a direct lead-capture path.',
@@ -119,6 +123,8 @@ export const projects: Project[] = [
 	{
 		title: 'PhySec.Dash',
 		category: 'Custom web application',
+		image: '/projects/physec-dash.jpg',
+		imageAlt: 'PhySec.Dash sign-in screen and interactive demo entry point',
 		description:
 			'PhySec.Dash gives security teams one dashboard to monitor cameras, card readers, alarm panels, and motion sensors with less operational friction. It is built with a Spring Boot API, PostgreSQL, Flyway migrations, JWT auth, role-based access control, audit logging, integration tests, and a React frontend.',
 		outcome: 'One focused workspace for monitoring critical physical-security systems.',
@@ -130,6 +136,8 @@ export const projects: Project[] = [
 	{
 		title: 'PhySec.Learn',
 		category: 'Training platform',
+		image: '/projects/physec-learn.jpg',
+		imageAlt: 'PhySec.Learn homepage introducing its physical access control course',
 		description:
 			"PhySec.Learn helps teams onboard faster with a no-login training experience for physical access control. Course content lives in Postgres with Prisma, while lesson progress stays private in each visitor's browser.",
 		outcome: 'Faster onboarding with a private, no-login learning experience.',

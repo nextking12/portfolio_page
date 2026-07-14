@@ -24,36 +24,24 @@
 		{#each projects as project, index (project.title)}
 			<li use:reveal={{ delay: 60 * (index + 1) }}>
 				<div
-					class="project-card group relative grid grid-cols-1 overflow-hidden rounded-2xl border border-[var(--color-line)] lg:grid-cols-[0.82fr_1.18fr]"
+					class="project-card group relative grid grid-cols-1 overflow-hidden rounded-2xl border border-[var(--color-line)] lg:grid-cols-[1.2fr_0.8fr]"
 				>
 					<div
-						class="project-visual relative min-h-72 overflow-hidden border-b border-[var(--color-line)] p-6 lg:min-h-full lg:border-b-0 lg:border-r"
+						class="project-visual relative aspect-[16/10] overflow-hidden border-b border-[var(--color-line)] lg:aspect-auto lg:min-h-full lg:border-b-0 lg:border-r"
 					>
-						<div class="project-glow"></div>
 						<div
-							class="relative z-10 flex h-full min-h-60 flex-col justify-between rounded-xl border border-white/10 bg-black/75 p-5 shadow-2xl"
+							class="absolute inset-x-0 top-0 z-10 flex h-8 items-center gap-1.5 border-b border-white/10 bg-black/75 px-4 backdrop-blur-sm"
 						>
-							<div class="flex items-center gap-1.5 border-b border-white/10 pb-4">
-								<span class="h-1.5 w-1.5 rounded-full bg-white/35"></span>
-								<span class="h-1.5 w-1.5 rounded-full bg-white/20"></span>
-								<span class="h-1.5 w-1.5 rounded-full bg-white/10"></span>
-							</div>
-							<div>
-								<p
-									class="text-[10px] font-medium uppercase tracking-[0.2em] text-[var(--color-accent-strong)]"
-								>
-									{project.category}
-								</p>
-								<p class="mt-3 text-3xl font-medium tracking-tight text-white md:text-4xl">
-									{project.title}
-								</p>
-							</div>
-							<div class="grid grid-cols-3 gap-2">
-								<div class="h-10 rounded bg-white/5"></div>
-								<div class="h-10 rounded bg-white/8"></div>
-								<div class="h-10 rounded bg-[var(--color-accent-soft)]"></div>
-							</div>
+							<span class="h-1.5 w-1.5 rounded-full bg-white/35"></span>
+							<span class="h-1.5 w-1.5 rounded-full bg-white/20"></span>
+							<span class="h-1.5 w-1.5 rounded-full bg-white/10"></span>
 						</div>
+						<img
+							src={project.image}
+							alt={project.imageAlt}
+							loading="lazy"
+							class="h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+						/>
 					</div>
 
 					<div class="flex flex-col justify-between p-7 md:p-9 lg:p-12">
