@@ -43,7 +43,7 @@
 			href="#home"
 			class="text-sm font-medium tracking-tight text-[var(--color-text)] transition-colors hover:text-[var(--color-accent-strong)]"
 		>
-			EK<span class="text-[var(--color-muted)]">.</span>
+			Edward King<span class="text-[var(--color-accent)]">.</span>
 		</a>
 
 		<ul
@@ -67,34 +67,20 @@
 			{/each}
 		</ul>
 
-		<button
-			type="button"
-			onclick={toggleTheme}
-			class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-text-soft)] transition-all duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)]"
-			aria-label="Toggle theme"
-		>
-			{#if theme === 'dark'}
-				<Sun size={15} strokeWidth={1.75} />
-			{:else}
-				<Moon size={15} strokeWidth={1.75} />
-			{/if}
-		</button>
+		<div class="ml-auto flex items-center gap-2 md:ml-0">
+			<a href="#contact" class="button-primary !px-3.5 !py-2 text-xs md:!hidden">Start a project</a>
+			<button
+				type="button"
+				onclick={toggleTheme}
+				class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-text-soft)] transition-all duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)]"
+				aria-label="Toggle theme"
+			>
+				{#if theme === 'dark'}
+					<Sun size={15} strokeWidth={1.75} />
+				{:else}
+					<Moon size={15} strokeWidth={1.75} />
+				{/if}
+			</button>
+		</div>
 	</nav>
-
-	<!-- Mobile section links -->
-	<ul
-		class="no-scrollbar flex items-center justify-start gap-6 overflow-x-auto border-t border-[var(--color-line)] px-6 py-2 text-[10px] font-medium uppercase tracking-[0.18em] text-[var(--color-muted)] md:hidden"
-	>
-		{#each items as item (item.href)}
-			<li>
-				<a
-					href={item.href}
-					class="transition-colors hover:text-[var(--color-text)]"
-					class:!text-[var(--color-text)]={activeHref === item.href}
-				>
-					{item.label}
-				</a>
-			</li>
-		{/each}
-	</ul>
 </header>

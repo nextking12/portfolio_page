@@ -3,20 +3,13 @@
 	import About from '$lib/components/About.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import ForBusiness from '$lib/components/ForBusiness.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import Projects from '$lib/components/Projects.svelte';
 	import ScrollRail from '$lib/components/ScrollRail.svelte';
 	import Skills from '$lib/components/Skills.svelte';
-	import {
-		businessSection,
-		navItems,
-		profile,
-		projects,
-		skillGroups,
-		socials
-	} from '$lib/data/site';
+	import Services from '$lib/components/Services.svelte';
+	import { navItems, profile, projects, services, skillGroups, socials } from '$lib/data/site';
 
 	type Theme = 'light' | 'dark';
 	let theme = $state<Theme>('dark');
@@ -52,9 +45,9 @@
 
 	<main>
 		<Hero {profile} />
-		<About about={profile.about} />
-		<ForBusiness section={businessSection} />
+		<Services {services} />
 		<Projects {projects} />
+		<About about={profile.about} />
 		<Skills groups={skillGroups} />
 		<Contact links={socials} />
 	</main>

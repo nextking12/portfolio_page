@@ -12,9 +12,18 @@ export type Profile = {
 	about: string[];
 };
 
-export type Project = {
+export type Service = {
+	number: string;
 	title: string;
 	description: string;
+	deliverables: string[];
+};
+
+export type Project = {
+	title: string;
+	category: string;
+	description: string;
+	outcome: string;
 	tags: string[];
 	repo: string;
 	live: string;
@@ -42,28 +51,48 @@ export type SocialLink = {
 };
 
 export const navItems: NavItem[] = [
-	{ label: 'Home', href: '#home' },
+	{ label: 'Services', href: '#services' },
+	{ label: 'Work', href: '#projects' },
 	{ label: 'About', href: '#about' },
-	{ label: 'For Businesses', href: '#for-business' },
-	{ label: 'Projects', href: '#projects' },
-	{ label: 'Skills', href: '#skills' },
+	{ label: 'Process', href: '#skills' },
 	{ label: 'Contact', href: '#contact' }
 ];
 
 export const profile: Profile = {
 	name: 'Edward King',
 	role: 'Full-Stack Engineer',
-	tagline: 'I build fast, accessible web products with modern and clean UI systems.',
+	tagline: 'Websites and custom software that help small businesses earn trust and grow.',
 	heroLead:
-		'I build custom sites and online stores for small brands — and the systems behind them.',
+		'I design and build polished business sites, online stores, and web apps from first idea to launch.',
 	intro:
-		'I focus on shipping maintainable applications that feel polished in everyday use. I enjoy turning product ideas into clear technical plans and reliable releases.',
+		'You get one reliable partner for strategy, design, development, and the technical details behind the scenes.',
 	about: [
 		'I am an engineer who likes working across frontend and backend to deliver complete user experiences. My recent work centers on modern JavaScript stacks, responsive UI, and interfaces that stay maintainable as they grow.',
 		'I care about clear communication, practical code quality, and steady iteration. Whether I am building a feature from scratch or improving an existing system, I prioritize performance, accessibility, and developer experience so teams can move faster with confidence.',
 		'I also know most people are not hiring code - they are hiring trust. I keep projects transparent, explain tradeoffs in plain language, and stay reliable from kickoff to launch so clients always know where things stand.'
 	]
 };
+
+export const services: Service[] = [
+	{
+		number: '01',
+		title: 'Business sites & online stores',
+		description:
+			'For local businesses and growing brands that need a fast, credible home online—without looking like everyone else.',
+		deliverables: [
+			'Custom responsive design',
+			'SEO and performance foundations',
+			'Launch and ongoing support'
+		]
+	},
+	{
+		number: '02',
+		title: 'Custom web apps & tools',
+		description:
+			'For teams ready to replace spreadsheets, connect a workflow, or turn a product idea into dependable software.',
+		deliverables: ['Product planning', 'Full-stack development', 'Testing and deployment']
+	}
+];
 
 export const businessSection: BusinessSection = {
 	label: 'For businesses',
@@ -79,16 +108,20 @@ export const businessSection: BusinessSection = {
 export const projects: Project[] = [
 	{
 		title: 'Smells Good Marketing',
+		category: 'Client website',
 		description:
-			'A custom site for a marketing agency, built from scratch rather than a template. When someone reaches out, their message lands straight in the agency\'s inbox — no extra services, no monthly fees.',
+			"A custom site for a marketing agency, built from scratch rather than a template. When someone reaches out, their message lands straight in the agency's inbox — no extra services, no monthly fees.",
+		outcome: 'A distinct, mobile-ready brand presence with a direct lead-capture path.',
 		tags: ['Next.js', 'TypeScript', 'Vercel'],
 		repo: 'https://github.com/nextking12/smells_good',
 		live: 'https://www.smellsgoodmktg.com'
 	},
 	{
 		title: 'PhySec.Dash',
+		category: 'Custom web application',
 		description:
 			'PhySec.Dash gives security teams one dashboard to monitor cameras, card readers, alarm panels, and motion sensors with less operational friction. It is built with a Spring Boot API, PostgreSQL, Flyway migrations, JWT auth, role-based access control, audit logging, integration tests, and a React frontend.',
+		outcome: 'One focused workspace for monitoring critical physical-security systems.',
 
 		tags: ['Java', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
 		repo: 'https://github.com/nextking12/physec-dashboard',
@@ -96,8 +129,10 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'PhySec.Learn',
+		category: 'Training platform',
 		description:
 			"PhySec.Learn helps teams onboard faster with a no-login training experience for physical access control. Course content lives in Postgres with Prisma, while lesson progress stays private in each visitor's browser.",
+		outcome: 'Faster onboarding with a private, no-login learning experience.',
 		tags: ['Next.js', 'PostgreSQL', 'Neon'],
 		repo: 'https://github.com/nextking12/open_acs',
 		live: 'https://open-acs.vercel.app/'
@@ -113,9 +148,15 @@ export const projects: Project[] = [
 ];
 
 export const skillGroups: SkillGroup[] = [
-	{ title: 'Frontend', items: ['React', 'TypeScript', 'Tailwind CSS'] },
-	{ title: 'Backend', items: ['Java', 'Spring Boot', 'PostgreSQL', 'REST'] },
-	{ title: 'Workflow', items: ['GitHub Actions', 'Playwright', 'Vitest', 'Vercel'] }
+	{ title: 'Discover', items: ['Goals & audience', 'Scope & priorities', 'Clear project plan'] },
+	{
+		title: 'Design & build',
+		items: ['Frequent previews', 'Responsive development', 'Plain-language updates']
+	},
+	{
+		title: 'Launch & support',
+		items: ['Quality checks', 'Confident handoff', 'Ongoing improvements']
+	}
 ];
 
 export const socials: SocialLink[] = [
