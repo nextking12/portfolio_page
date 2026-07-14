@@ -9,8 +9,8 @@
 	<div use:reveal class="hairline mb-16"></div>
 
 	<div use:reveal class="mb-16 space-y-6">
-		<p class="section-label">Toolkit</p>
-		<h2 class="section-heading max-w-xl">Skills &amp; stack.</h2>
+		<p class="section-label">A simple process</p>
+		<h2 class="section-heading max-w-2xl">A clear path from idea to launch.</h2>
 	</div>
 
 	<div
