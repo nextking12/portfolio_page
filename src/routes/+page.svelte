@@ -12,7 +12,7 @@
 	import { navItems, profile, projects, services, skillGroups, socials } from '$lib/data/site';
 
 	type Theme = 'light' | 'dark';
-	let theme = $state<Theme>('dark');
+	let theme = $state<Theme>('light');
 
 	onMount(() => {
 		const savedTheme = window.localStorage.getItem('theme');
@@ -21,8 +21,8 @@
 			return;
 		}
 
-		// Default to dark; only flip to light if user explicitly prefers it.
-		theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+		// A warm light theme is the brand default. The toggle still respects a saved choice.
+		theme = 'light';
 	});
 
 	$effect(() => {
@@ -39,7 +39,7 @@
 	};
 </script>
 
-<div class="relative min-h-screen overflow-x-clip bg-[var(--color-bg)] text-[var(--color-text)]">
+<div class="page-shell relative min-h-screen overflow-x-clip text-[var(--color-text)]">
 	<Nav items={navItems} {theme} {toggleTheme} />
 	<ScrollRail items={navItems} />
 
