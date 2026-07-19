@@ -1,15 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { Sun, Moon } from '@lucide/svelte';
 	import type { NavItem } from '$lib/data/site';
 
-	type Theme = 'light' | 'dark';
-
-	let { items, theme, toggleTheme } = $props<{
-		items: NavItem[];
-		theme: Theme;
-		toggleTheme: () => void;
-	}>();
+	let { items } = $props<{ items: NavItem[] }>();
 	let activeHref = $state('#home');
 
 	onMount(() => {
@@ -36,18 +29,23 @@
 </script>
 
 <header
-	class="sticky top-0 z-40 border-b border-[var(--color-line)] bg-[var(--color-nav-bg)] backdrop-blur-xl"
+	class="sticky top-0 z-40 isolate border-b border-[var(--color-line-strong)] bg-[var(--color-nav-bg)] backdrop-blur-md"
 >
-	<nav class="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-4 md:px-10">
+	<nav
+		class="mx-auto flex w-full max-w-[88rem] items-center justify-between gap-6 px-5 py-3 md:px-8"
+	>
 		<a
 			href="#home"
-			class="text-sm font-medium tracking-tight text-[var(--color-text)] transition-colors hover:text-[var(--color-accent-strong)]"
+			class="flex items-center gap-3 text-[var(--color-text)] transition-colors hover:text-[var(--color-accent-strong)]"
 		>
-			Edward King<span class="text-[var(--color-accent)]">.</span>
+			<span class="studio-mark">EK</span>
+			<span class="font-mono text-[10px] uppercase leading-tight tracking-[0.18em]"
+				>Edward King<br />Digital studio</span
+			>
 		</a>
 
 		<ul
-			class="no-scrollbar hidden items-center gap-8 overflow-x-auto text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-muted)] md:flex"
+			class="no-scrollbar hidden items-center gap-7 overflow-x-auto font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-muted)] md:flex"
 		>
 			{#each items as item (item.href)}
 				<li>
@@ -67,20 +65,8 @@
 			{/each}
 		</ul>
 
-		<div class="ml-auto flex items-center gap-2 md:ml-0">
-			<a href="#contact" class="button-primary !px-3.5 !py-2 text-xs md:!hidden">Start a project</a>
-			<button
-				type="button"
-				onclick={toggleTheme}
-				class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-text-soft)] transition-all duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)]"
-				aria-label="Toggle theme"
-			>
-				{#if theme === 'dark'}
-					<Sun size={15} strokeWidth={1.75} />
-				{:else}
-					<Moon size={15} strokeWidth={1.75} />
-				{/if}
-			</button>
-		</div>
+		<a href="#contact" class="studio-cta ml-auto md:ml-0"
+			><span class="status-dot"></span> Start a project</a
+		>
 	</nav>
 </header>

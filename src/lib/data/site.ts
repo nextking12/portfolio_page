@@ -22,6 +22,8 @@ export type Service = {
 export type Project = {
 	title: string;
 	category: string;
+	brief: string;
+	decision: string;
 	image: string;
 	imageAlt: string;
 	description: string;
@@ -63,9 +65,9 @@ export const navItems: NavItem[] = [
 export const profile: Profile = {
 	name: 'Edward King',
 	role: 'Full-Stack Engineer',
-	tagline: 'Websites and custom software that help small businesses earn trust and grow.',
+	tagline: 'Clear, dependable digital work for businesses with somewhere to go.',
 	heroLead:
-		'I design and build polished business sites, online stores, and web apps from first idea to launch.',
+		'I turn fuzzy business problems into clear, dependable websites and software—from the first conversation through launch.',
 	intro:
 		'You get one reliable partner for strategy, design, development, and the technical details behind the scenes.',
 	about: [
@@ -111,6 +113,10 @@ export const projects: Project[] = [
 	{
 		title: 'Smells Good Marketing',
 		category: 'Client website',
+		brief:
+			'Give a fast-moving creative agency a web presence with the same confidence as its work.',
+		decision:
+			'Build a focused, custom experience with a direct inquiry path instead of adding a heavy CMS or paid form service.',
 		image: '/projects/smells-good.jpg',
 		imageAlt: 'Smells Good Marketing homepage showing its short-form video service offer',
 		description:
@@ -123,6 +129,10 @@ export const projects: Project[] = [
 	{
 		title: 'PhySec.Dash',
 		category: 'Custom web application',
+		brief:
+			'Bring scattered physical-security systems into one workspace operators can understand at a glance.',
+		decision:
+			'Treat access control, alarms, cameras, and sensors as one coherent operational model backed by explicit roles and audit history.',
 		image: '/projects/physec-dash.jpg',
 		imageAlt: 'PhySec.Dash sign-in screen and interactive demo entry point',
 		description:
@@ -136,6 +146,10 @@ export const projects: Project[] = [
 	{
 		title: 'PhySec.Learn',
 		category: 'Training platform',
+		brief:
+			'Make specialized physical-security training approachable without putting an account wall in front of learners.',
+		decision:
+			"Keep course content durable in Postgres while storing personal lesson progress privately in each visitor's browser.",
 		image: '/projects/physec-learn.jpg',
 		imageAlt: 'PhySec.Learn homepage introducing its physical access control course',
 		description:
@@ -187,3 +201,6 @@ export const socials: SocialLink[] = [
 		platform: 'twitter'
 	}
 ];
+
+// Replace this once the public project inbox is ready.
+export const contactEmail = 'hello@ecking.dev';

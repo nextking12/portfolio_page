@@ -3,58 +3,49 @@
 	import { reveal } from '$lib/actions/reveal';
 	import type { SocialLink } from '$lib/data/site';
 
-	let { links } = $props<{ links: SocialLink[] }>();
-	const linkedinHref = $derived(
-		links.find((link: SocialLink) => link.platform === 'linkedin')?.href ?? '#'
-	);
+	let { links, email } = $props<{ links: SocialLink[]; email: string }>();
+	const emailHref = $derived(`mailto:${email}?subject=Project%20inquiry`);
 </script>
 
-<section id="contact" class="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-32">
-	<div use:reveal class="hairline mb-16"></div>
-
-	<div
-		class="contact-panel grid gap-12 rounded-2xl border border-[var(--color-line)] p-7 md:grid-cols-[1.2fr_0.8fr] md:gap-16 md:p-12 lg:p-16"
-	>
-		<div use:reveal class="space-y-8">
-			<p class="section-label">Have a project in mind?</p>
-			<h2 class="section-heading max-w-xl">Let's make the next step clear.</h2>
-			<p class="content-measure text-base leading-relaxed text-[var(--color-text-soft)] md:text-lg">
-				Tell me what you are building, what is getting in the way, and where you want to go. I will
-				reply with practical next steps—no jargon or hard sell.
-			</p>
-			<a href={linkedinHref} target="_blank" rel="noopener noreferrer" class="button-primary">
-				<span>Discuss a project</span><ArrowUpRight size={15} strokeWidth={1.75} />
-			</a>
+<section id="contact" class="contact-section">
+	<div class="mx-auto w-full max-w-[88rem] px-5 py-20 md:px-8 md:py-28">
+		<div use:reveal class="section-index !border-black/25 !text-black/60">
+			<span>05</span><span>Project inquiry</span><span>Next opening / available</span>
 		</div>
+		<div class="grid gap-16 md:grid-cols-[1fr_0.55fr] md:items-end">
+			<div use:reveal>
+				<p class="mb-5 font-mono text-[10px] uppercase tracking-[0.18em] text-black/60">
+					Have a project in mind?
+				</p>
+				<h2>Let’s make the<br />next step clear.</h2>
+				<a href={emailHref} class="contact-email"
+					><span>{email}</span><ArrowUpRight size={28} strokeWidth={1.5} /></a
+				>
+				<p class="mt-3 font-mono text-[9px] uppercase tracking-[0.15em] text-black/55">
+					Placeholder inbox — public email setup in progress
+				</p>
+			</div>
 
-		<div use:reveal={{ delay: 120 }} class="space-y-6">
-			<p class="section-label">Find me online</p>
-
-			<ul class="grid grid-cols-1 gap-3">
-				{#each links as link, index (link.href)}
-					<li>
-						<a
-							href={link.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="group relative flex h-full flex-col justify-between gap-6 rounded-lg border border-[var(--color-line)] p-5 transition-all duration-300 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent-soft)]"
-							use:reveal={{ delay: 160 + 60 * index }}
-						>
-							<div class="flex items-start justify-between">
-								<span class="text-sm font-medium tracking-tight text-[var(--color-text)]">
-									{link.label}
-								</span>
-								<ArrowUpRight
-									size={15}
-									strokeWidth={1.5}
-									class="text-[var(--color-muted)] transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--color-accent-strong)]"
-								/>
-							</div>
-							<span class="text-xs text-[var(--color-muted)]">{link.handle}</span>
-						</a>
-					</li>
-				{/each}
-			</ul>
+			<div use:reveal={{ delay: 70 }}>
+				<p class="max-w-md text-base leading-relaxed text-black/70">
+					Tell me what you are building, what is getting in the way, and where you want to go. I’ll
+					reply with practical next steps—no jargon or hard sell.
+				</p>
+				<ul class="mt-10 flex flex-wrap gap-x-6 gap-y-3">
+					{#each links as link (link.href)}
+						<li>
+							<a
+								href={link.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="group flex items-center gap-1 border-b border-black/40 pb-1 font-mono text-[10px] uppercase tracking-[0.14em] transition-colors hover:border-black"
+							>
+								<span>{link.label}</span><ArrowUpRight size={12} />
+							</a>
+						</li>
+					{/each}
+				</ul>
+			</div>
 		</div>
 	</div>
 </section>

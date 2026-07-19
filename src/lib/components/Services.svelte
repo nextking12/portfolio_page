@@ -1,57 +1,44 @@
 <script lang="ts">
-	import { ArrowDownRight, Check } from '@lucide/svelte';
+	import { ArrowUpRight } from '@lucide/svelte';
 	import { reveal } from '$lib/actions/reveal';
 	import type { Service } from '$lib/data/site';
 
 	let { services } = $props<{ services: Service[] }>();
 </script>
 
-<section id="services" class="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-32">
-	<div use:reveal class="hairline mb-16"></div>
+<section id="services" class="section-shell">
+	<div use:reveal class="section-index">
+		<span>01</span><span>Capabilities</span><span>What I take on</span>
+	</div>
 
-	<div use:reveal class="mb-12 grid gap-6 md:grid-cols-[0.9fr_1.1fr] md:items-end">
-		<div class="space-y-6">
-			<p class="section-label">Ways I can help</p>
-			<h2 class="section-heading">Built around your next move.</h2>
-		</div>
+	<div use:reveal class="mb-14 grid gap-8 md:grid-cols-[1fr_0.8fr] md:items-end">
+		<h2 class="section-heading max-w-3xl">
+			Good work starts with the problem, not a predetermined template.
+		</h2>
 		<p
-			class="content-measure text-base leading-relaxed text-[var(--color-text-soft)] md:justify-self-end md:text-lg"
+			class="content-measure text-base leading-relaxed text-[var(--color-text-soft)] md:justify-self-end"
 		>
-			Whether you need a better storefront or a tool your team can depend on, the work starts with
-			the problem—not a predetermined template.
+			I work across strategy, interface design, frontend, and backend so fewer details get lost
+			between disciplines.
 		</p>
 	</div>
 
-	<div class="grid gap-4 md:grid-cols-2">
+	<div class="border-t border-[var(--color-line-strong)]">
 		{#each services as service, index (service.title)}
-			<article
-				use:reveal={{ delay: 80 * (index + 1) }}
-				class="service-card group relative overflow-hidden rounded-2xl border border-[var(--color-line)] p-7 md:p-9"
-			>
-				<div class="mb-16 flex items-start justify-between">
-					<span class="section-label">{service.number}</span>
-					<ArrowDownRight
-						class="text-[var(--color-muted)] transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1 group-hover:text-[var(--color-accent-strong)]"
-						size={22}
-						strokeWidth={1.5}
-					/>
-				</div>
-				<h3
-					class="max-w-md text-2xl font-medium tracking-tight text-[var(--color-text)] md:text-3xl"
-				>
-					{service.title}
-				</h3>
-				<p class="mt-5 max-w-lg text-sm leading-relaxed text-[var(--color-text-soft)] md:text-base">
+			<article use:reveal={{ delay: 50 * (index + 1) }} class="service-row group">
+				<span class="font-mono text-xs text-[var(--color-accent-strong)]">{service.number}</span>
+				<h3 class="font-serif text-3xl leading-none md:text-5xl">{service.title}</h3>
+				<p class="max-w-md text-sm leading-relaxed text-[var(--color-text-soft)] md:text-base">
 					{service.description}
 				</p>
-				<ul class="mt-8 space-y-3 border-t border-[var(--color-line)] pt-6">
+				<ul
+					class="space-y-2 font-mono text-[10px] uppercase tracking-[0.13em] text-[var(--color-muted)]"
+				>
 					{#each service.deliverables as item (item)}
-						<li class="flex items-center gap-3 text-sm text-[var(--color-text-soft)]">
-							<Check size={14} strokeWidth={1.75} class="text-[var(--color-accent-strong)]" />
-							{item}
-						</li>
+						<li>— {item}</li>
 					{/each}
 				</ul>
+				<ArrowUpRight class="service-arrow" size={22} strokeWidth={1.5} />
 			</article>
 		{/each}
 	</div>

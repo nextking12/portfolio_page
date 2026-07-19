@@ -19,18 +19,24 @@
 		property="og:description"
 		content="Custom websites and web applications built to help small businesses earn trust and grow."
 	/>
-	<meta property="og:image" content="https://www.ecking.dev/og-image.png" />
+	<meta property="og:image" content="https://www.ecking.dev/og-image-studio.png" />
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content="EK initials with Edward King Software Engineer text" />
+	<meta
+		property="og:image:alt"
+		content="Edward King — clear, dependable digital work; strategy, design, and engineering"
+	/>
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Edward King | Websites &amp; Custom Software" />
 	<meta
 		name="twitter:description"
 		content="Custom websites and web applications built to help small businesses earn trust and grow."
 	/>
-	<meta name="twitter:image" content="https://www.ecking.dev/og-image.png" />
-	<meta name="twitter:image:alt" content="EK initials with Edward King Software Engineer text" />
+	<meta name="twitter:image" content="https://www.ecking.dev/og-image-studio.png" />
+	<meta
+		name="twitter:image:alt"
+		content="Edward King — clear, dependable digital work; strategy, design, and engineering"
+	/>
 </svelte:head>
 {@render children()}
