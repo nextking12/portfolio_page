@@ -13,7 +13,6 @@ export type Profile = {
 };
 
 export type Service = {
-	number: string;
 	title: string;
 	description: string;
 	deliverables: string[];
@@ -67,7 +66,7 @@ export const profile: Profile = {
 	role: 'Full-Stack Engineer',
 	tagline: 'Clear, dependable digital work for businesses with somewhere to go.',
 	heroLead:
-		'I turn fuzzy business problems into clear, dependable websites and software—from the first conversation through launch.',
+		'Practical, custom-built digital work shaped around what your business actually needs, from the first conversation through launch.',
 	intro:
 		'You get one reliable partner for strategy, design, development, and the technical details behind the scenes.',
 	about: [
@@ -79,7 +78,6 @@ export const profile: Profile = {
 
 export const services: Service[] = [
 	{
-		number: '01',
 		title: 'Business sites & online stores',
 		description:
 			'For local businesses and growing brands that need a fast, credible home online—without looking like everyone else.',
@@ -90,7 +88,6 @@ export const services: Service[] = [
 		]
 	},
 	{
-		number: '02',
 		title: 'Custom web apps & tools',
 		description:
 			'For teams ready to replace spreadsheets, connect a workflow, or turn a product idea into dependable software.',

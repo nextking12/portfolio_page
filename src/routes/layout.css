@@ -22,8 +22,8 @@
 
 @theme {
 	--font-sans: 'Inter Variable', 'Inter', 'Avenir Next', sans-serif;
-	--font-serif: 'Iowan Old Style', 'Baskerville', 'Times New Roman', serif;
-	--font-mono: 'SFMono-Regular', 'Cascadia Mono', 'Roboto Mono', monospace;
+	--font-serif: 'Inter Variable', 'Inter', 'Avenir Next', sans-serif;
+	--font-mono: 'Inter Variable', 'Inter', 'Avenir Next', sans-serif;
 }
 
 html,
@@ -194,21 +194,10 @@ section[id] {
 	align-items: start;
 	border-bottom: 1px solid var(--color-line-strong);
 	padding: 2rem 0;
-	transition:
-		padding 240ms cubic-bezier(0.16, 1, 0.3, 1),
-		background 240ms cubic-bezier(0.16, 1, 0.3, 1);
+	transition: background-color 320ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 .service-row:hover {
 	background: var(--color-accent-soft);
-	padding-inline: 1rem;
-}
-.service-arrow {
-	display: none;
-	color: var(--color-accent-strong);
-	transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.service-row:hover .service-arrow {
-	transform: translate(3px, -3px);
 }
 
 .project-dossier {
@@ -386,12 +375,9 @@ section[id] {
 		padding: 9rem 2rem;
 	}
 	.service-row {
-		grid-template-columns: 3rem 1fr 1.1fr 0.75fr 2rem;
+		grid-template-columns: 1fr 1.1fr 0.75fr;
 		gap: 2rem;
 		padding: 2.8rem 0;
-	}
-	.service-arrow {
-		display: block;
 	}
 	.project-copy {
 		grid-template-columns: 0.8fr 1.2fr;

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { ArrowUpRight } from '@lucide/svelte';
 	import { reveal } from '$lib/actions/reveal';
 	import type { Service } from '$lib/data/site';
 
@@ -25,8 +24,7 @@
 
 	<div class="border-t border-[var(--color-line-strong)]">
 		{#each services as service, index (service.title)}
-			<article use:reveal={{ delay: 50 * (index + 1) }} class="service-row group">
-				<span class="font-mono text-xs text-[var(--color-accent-strong)]">{service.number}</span>
+			<article use:reveal={{ delay: 50 * (index + 1) }} class="service-row">
 				<h3 class="font-serif text-3xl leading-none md:text-5xl">{service.title}</h3>
 				<p class="max-w-md text-sm leading-relaxed text-[var(--color-text-soft)] md:text-base">
 					{service.description}
@@ -38,7 +36,6 @@
 						<li>— {item}</li>
 					{/each}
 				</ul>
-				<ArrowUpRight class="service-arrow" size={22} strokeWidth={1.5} />
 			</article>
 		{/each}
 	</div>
