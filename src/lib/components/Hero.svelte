@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { ArrowDown, Download } from '@lucide/svelte';
+	import SystemsMap from '$lib/components/SystemsMap.svelte';
 	import type { Profile } from '$lib/data/site';
 
 	let { profile, resumeUrl } = $props<{ profile: Profile; resumeUrl: string }>();
@@ -7,9 +8,13 @@
 </script>
 
 <section id="home" class="hero-shell">
+	<div class="hero-status" aria-label="Profile status">
+		<span><i aria-hidden="true"></i> Career profile / 2026</span>
+		<span>Security systems + software engineering</span>
+	</div>
 	<div class="hero-layout">
 		<div class="hero-title-block">
-			<p class="eyebrow">Edward King / Engineering physical and digital systems</p>
+			<p class="eyebrow">Edward King / Engineering across the system boundary</p>
 			<h1>{primaryRole}</h1>
 		</div>
 		<div class="hero-summary">
@@ -24,9 +29,5 @@
 			</div>
 		</div>
 	</div>
-	<div class="hero-credentials" aria-label="Career highlights">
-		<span>20+ years in physical security</span>
-		<span>Enterprise and mission-critical systems</span>
-		<span>Software engineering and automation</span>
-	</div>
+	<SystemsMap />
 </section>

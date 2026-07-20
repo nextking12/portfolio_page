@@ -23,6 +23,11 @@
 			<article class:featured-project={index === 0} class="project-card">
 				{#if project.image}
 					<div class="project-image">
+						<div class="project-image-label" aria-hidden="true">
+							<span>Visual record</span><span
+								>0{index + 1} / {projects.length.toString().padStart(2, '0')}</span
+							>
+						</div>
 						<img
 							src={project.image}
 							alt={project.imageAlt ?? ''}
