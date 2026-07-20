@@ -1,26 +1,28 @@
 <script lang="ts">
+	import { Menu, Moon, Sun, X } from '@lucide/svelte';
 	import { onMount } from 'svelte';
-	import type { NavItem } from '$lib/data/site';
+	import type { NavItem, Theme } from '$lib/data/site';
 
-	let { items } = $props<{ items: NavItem[] }>();
+	let { items, theme, toggleTheme } = $props<{
+		items: NavItem[];
+		theme: Theme;
+		toggleTheme: () => void;
+	}>();
 	let activeHref = $state('#home');
+	let menuOpen = $state(false);
 
 	onMount(() => {
 		const sections = items
 			.map((item: NavItem) => document.querySelector<HTMLElement>(item.href))
 			.filter((section: HTMLElement | null): section is HTMLElement => section !== null);
 
-		if (sections.length === 0) return;
-
 		const observer = new IntersectionObserver(
 			(entries) => {
 				for (const entry of entries) {
-					if (entry.isIntersecting) {
-						activeHref = `#${entry.target.id}`;
-					}
+					if (entry.isIntersecting) activeHref = `#${entry.target.id}`;
 				}
 			},
-			{ rootMargin: '-30% 0px -60% 0px', threshold: 0.05 }
+			{ rootMargin: '-25% 0px -65% 0px', threshold: 0.05 }
 		);
 
 		for (const section of sections) observer.observe(section);
@@ -28,45 +30,62 @@
 	});
 </script>
 
-<header
-	class="sticky top-0 z-40 isolate border-b border-[var(--color-line-strong)] bg-[var(--color-nav-bg)] backdrop-blur-md"
->
-	<nav
-		class="mx-auto flex w-full max-w-[88rem] items-center justify-between gap-6 px-5 py-3 md:px-8"
-	>
-		<a
-			href="#home"
-			class="flex items-center gap-3 text-[var(--color-text)] transition-colors hover:text-[var(--color-accent-strong)]"
-		>
-			<span class="studio-mark">EK</span>
-			<span class="font-mono text-[10px] uppercase leading-tight tracking-[0.18em]"
-				>Edward King<br />Digital studio</span
-			>
+<header class="site-header">
+	<nav class="nav-shell" aria-label="Primary navigation">
+		<a href="#home" class="brand" onclick={() => (menuOpen = false)}>
+			<span class="brand-mark">EK</span>
+			<span><strong>Edward King</strong><small>Systems + software</small></span>
 		</a>
 
-		<ul
-			class="no-scrollbar hidden items-center gap-7 overflow-x-auto font-mono text-[10px] uppercase tracking-[0.16em] text-[var(--color-muted)] md:flex"
-		>
+		<ul class="desktop-nav">
 			{#each items as item (item.href)}
 				<li>
-					<a
-						href={item.href}
-						class="relative py-1 transition-colors duration-200 hover:text-[var(--color-text)]"
-						class:!text-[var(--color-text)]={activeHref === item.href}
-					>
+					<a href={item.href} aria-current={activeHref === item.href ? 'location' : undefined}>
 						{item.label}
-						<span
-							class="absolute inset-x-0 -bottom-0.5 h-px origin-left bg-[var(--color-accent)] transition-transform duration-300"
-							class:scale-x-100={activeHref === item.href}
-							class:scale-x-0={activeHref !== item.href}
-						></span>
 					</a>
 				</li>
 			{/each}
 		</ul>
 
-		<a href="#contact" class="studio-cta ml-auto md:ml-0"
-			><span class="status-dot"></span> Start a project</a
-		>
+		<div class="nav-actions">
+			<button
+				type="button"
+				class="theme-button"
+				onclick={toggleTheme}
+				aria-label="Toggle color theme"
+			>
+				{#if theme === 'dark'}
+					<Sun size={18} strokeWidth={1.75} />
+				{:else}
+					<Moon size={18} strokeWidth={1.75} />
+				{/if}
+			</button>
+			<button
+				type="button"
+				class="menu-button"
+				aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+				aria-expanded={menuOpen}
+				aria-controls="mobile-navigation"
+				onclick={() => (menuOpen = !menuOpen)}
+			>
+				{#if menuOpen}<X size={21} />{:else}<Menu size={21} />{/if}
+			</button>
+		</div>
 	</nav>
+
+	{#if menuOpen}
+		<ul id="mobile-navigation" class="mobile-nav">
+			{#each items as item (item.href)}
+				<li>
+					<a
+						href={item.href}
+						aria-current={activeHref === item.href ? 'location' : undefined}
+						onclick={() => (menuOpen = false)}
+					>
+						{item.label}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	{/if}
 </header>

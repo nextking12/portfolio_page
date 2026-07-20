@@ -1,39 +1,44 @@
-# Portfolio Page
+# ecking.dev
 
-Modern single-page developer portfolio built with SvelteKit, Tailwind CSS v4, and a light/dark theme system.
+Career-focused site for Edward King, built for hiring managers and technical leaders evaluating experience across physical security systems, solutions engineering, program delivery, and software engineering.
 
-## Features
+## Site Structure
 
-- Minimal black/white visual style with muted cyan accents
-- Sticky nav with active section highlight and theme toggle
-- Subtle reveal-on-scroll section animations
-- Responsive layout for desktop and mobile
-- Centralized content data for quick editing
+- Career profile and positioning
+- Professional experience
+- Security, infrastructure, software, and automation expertise
+- Evidence-based impact
+- Applied engineering projects
+- Downloadable resume and contact paths
 
 ## Tech Stack
 
-- SvelteKit (Svelte 5)
+- SvelteKit and Svelte 5
 - TypeScript
 - Tailwind CSS v4
-- Inter Variable font (`@fontsource-variable/inter`)
-
-## Getting Started
-
-```sh
-pnpm install
-pnpm dev -- --open
-```
+- Inter Variable font
+- Vercel adapter
 
 ## Content Editing
 
-- Update profile, project cards, skills, and contact links in `src/lib/data/site.ts`.
-- Global theme tokens (colors, surfaces, spacing feel) live in `src/routes/layout.css`.
+- Career, experience, expertise, impact, project, and contact data: `src/lib/data/site.ts`
+- Page composition: `src/routes/+page.svelte`
+- Global responsive styles and theme tokens: `src/routes/layout.css`
+- Project direction: `CAREER_SITE_DIRECTION.md`
+- Public resume: `static/Edward-King-Resume.pdf`
 
-## Scripts
+## Local Development
 
 ```sh
+pnpm install
 pnpm dev
+```
+
+## Validation
+
+```sh
 pnpm check
+pnpm lint
+pnpm test -- --run
 pnpm build
-pnpm preview
 ```

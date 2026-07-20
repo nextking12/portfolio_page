@@ -7,36 +7,36 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Edward King | Websites &amp; Custom Software for Small Businesses</title>
+	<title>Edward King | Security Systems &amp; Solutions Engineer</title>
 	<meta
 		name="description"
-		content="Custom websites, online stores, and web applications for small businesses and growing brands. Designed and built by Edward King."
+		content="Edward King is a security systems engineer, solutions engineer, technical program leader, and software developer working across physical and digital systems."
 	/>
-	<meta property="og:title" content="Edward King | Websites &amp; Custom Software" />
+	<meta property="og:title" content="Edward King | Security Systems &amp; Solutions Engineer" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://www.ecking.dev" />
 	<meta
 		property="og:description"
-		content="Custom websites and web applications built to help small businesses earn trust and grow."
+		content="Enterprise security engineering, systems integration, technical leadership, networking, and software development."
 	/>
-	<meta property="og:image" content="https://www.ecking.dev/og-image-studio.png" />
+	<meta property="og:image" content="https://www.ecking.dev/og-image-career.png" />
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 	<meta
 		property="og:image:alt"
-		content="Edward King — clear, dependable digital work; strategy, design, and engineering"
+		content="Edward King, security systems engineer, solutions engineer, and technical program leader"
 	/>
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Edward King | Websites &amp; Custom Software" />
+	<meta name="twitter:title" content="Edward King | Security Systems &amp; Solutions Engineer" />
 	<meta
 		name="twitter:description"
-		content="Custom websites and web applications built to help small businesses earn trust and grow."
+		content="Enterprise security engineering, systems integration, technical leadership, networking, and software development."
 	/>
-	<meta name="twitter:image" content="https://www.ecking.dev/og-image-studio.png" />
+	<meta name="twitter:image" content="https://www.ecking.dev/og-image-career.png" />
 	<meta
 		name="twitter:image:alt"
-		content="Edward King — clear, dependable digital work; strategy, design, and engineering"
+		content="Edward King, security systems engineer, solutions engineer, and technical program leader"
 	/>
 </svelte:head>
 {@render children()}
