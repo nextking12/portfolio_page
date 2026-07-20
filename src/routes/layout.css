@@ -280,12 +280,12 @@ section[id] {
 }
 
 .hero-title-block h1 {
-	max-width: 15ch;
+	max-width: 54rem;
 	margin-top: 1.5rem;
-	font-size: clamp(2.65rem, 6.4vw, 6.25rem);
-	font-weight: 560;
-	letter-spacing: -0.055em;
-	line-height: 0.98;
+	font-size: clamp(3rem, 5.6vw, 5.4rem);
+	font-weight: 580;
+	letter-spacing: -0.05em;
+	line-height: 0.96;
 }
 
 .hero-summary {
@@ -424,6 +424,10 @@ section[id] {
 	color: var(--color-text-soft);
 	font-size: 1rem;
 	line-height: 1.75;
+}
+
+.section-intro--solo h2 {
+	max-width: 22ch;
 }
 
 .about-copy {
@@ -871,6 +875,10 @@ footer {
 		grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
 		align-items: end;
 		gap: 4rem;
+	}
+
+	.section-intro--solo h2 {
+		grid-column: 1 / -1;
 	}
 
 	.experience-item {

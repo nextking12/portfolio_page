@@ -6,7 +6,7 @@ Transform **ecking.dev** into a career-focused site for hiring managers.
 
 ## Core Message
 
-> I am not transitioning away from my previous career. I am expanding it with software engineering.
+> I’m expanding 20+ years of security systems experience with software engineering.
 
 ## Priorities
 

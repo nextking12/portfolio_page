@@ -6,12 +6,8 @@
 
 <section id="about" class="section-shell">
 	<p class="section-kicker">About</p>
-	<div class="section-intro">
+	<div class="section-intro section-intro--solo">
 		<h2>{profile.aboutLead}</h2>
-		<p>
-			The result is a broader engineering perspective: one grounded in real-world systems and
-			extended through software.
-		</p>
 	</div>
 	<div class="about-copy">
 		{#each profile.about as paragraph (paragraph)}

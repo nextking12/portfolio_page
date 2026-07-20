@@ -74,8 +74,7 @@ export const profile: Profile = {
 	name: 'Edward King',
 	headline: 'Security Systems Engineer | Solutions Engineer | Technical Program Leader',
 	lead: 'I connect enterprise security, systems integration, customer-facing technical leadership, and software engineering to deliver resilient systems.',
-	aboutLead:
-		'I am not transitioning away from my previous career. I am expanding it with software engineering.',
+	aboutLead: 'I’m expanding 20+ years of security systems experience with software engineering.',
 	about: [
 		'My work sits where physical systems, networks, software, and people meet. For more than 20 years, I have designed, integrated, deployed, and commissioned security systems in mission-critical environments.',
 		'Software development adds another layer to that experience: the ability to build tools, understand applications end to end, and turn recurring operational problems into maintainable systems.',

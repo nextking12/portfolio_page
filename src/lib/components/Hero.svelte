@@ -3,13 +3,14 @@
 	import type { Profile } from '$lib/data/site';
 
 	let { profile, resumeUrl } = $props<{ profile: Profile; resumeUrl: string }>();
+	const primaryRole = $derived(profile.headline.split(' | ')[0]);
 </script>
 
 <section id="home" class="hero-shell">
 	<div class="hero-layout">
 		<div class="hero-title-block">
 			<p class="eyebrow">Edward King / Engineering physical and digital systems</p>
-			<h1>{profile.headline}</h1>
+			<h1>{primaryRole}</h1>
 		</div>
 		<div class="hero-summary">
 			<p>{profile.lead}</p>
