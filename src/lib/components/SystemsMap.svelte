@@ -1,7 +1,7 @@
 <div class="systems-map" aria-label="Edward King's engineering perspective">
 	<div class="systems-map-header">
-		<span>Systems perspective</span>
-		<span>Signal path / 01-04</span>
+		<span>System routing table</span>
+		<span>Channels // 01-04</span>
 	</div>
 	<ol>
 		<li>

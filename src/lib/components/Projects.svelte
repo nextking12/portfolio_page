@@ -24,7 +24,7 @@
 				{#if project.image}
 					<div class="project-image">
 						<div class="project-image-label" aria-hidden="true">
-							<span>Visual record</span><span
+							<span>Output monitor</span><span
 								>0{index + 1} / {projects.length.toString().padStart(2, '0')}</span
 							>
 						</div>

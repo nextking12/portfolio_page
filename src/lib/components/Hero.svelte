@@ -9,8 +9,8 @@
 
 <section id="home" class="hero-shell">
 	<div class="hero-status" aria-label="Profile status">
-		<span><i aria-hidden="true"></i> Career profile / 2026</span>
-		<span>Security systems + software engineering</span>
+		<span><i aria-hidden="true"></i> Profile record // Rev. 2026</span>
+		<span>Domain: physical security + software</span>
 	</div>
 	<div class="hero-layout">
 		<div class="hero-title-block">
