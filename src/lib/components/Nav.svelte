@@ -1,9 +1,7 @@
 <script lang="ts">
+	import { Menu, Moon, Sun, X } from '@lucide/svelte';
 	import { onMount } from 'svelte';
-	import { Sun, Moon } from '@lucide/svelte';
-	import type { NavItem } from '$lib/data/site';
-
-	type Theme = 'light' | 'dark';
+	import type { NavItem, Theme } from '$lib/data/site';
 
 	let { items, theme, toggleTheme } = $props<{
 		items: NavItem[];
@@ -11,23 +9,33 @@
 		toggleTheme: () => void;
 	}>();
 	let activeHref = $state('#home');
+	let menuOpen = $state(false);
+	let menuButton: HTMLButtonElement;
+	const desktopItems = $derived(
+		items.filter((item: NavItem) => item.href !== '#home' && item.href !== '#contact')
+	);
+
+	const closeMenu = (restoreFocus = false) => {
+		menuOpen = false;
+		if (restoreFocus) menuButton?.focus();
+	};
+
+	const handleKeydown = (event: KeyboardEvent) => {
+		if (event.key === 'Escape' && menuOpen) closeMenu(true);
+	};
 
 	onMount(() => {
 		const sections = items
 			.map((item: NavItem) => document.querySelector<HTMLElement>(item.href))
 			.filter((section: HTMLElement | null): section is HTMLElement => section !== null);
 
-		if (sections.length === 0) return;
-
 		const observer = new IntersectionObserver(
 			(entries) => {
 				for (const entry of entries) {
-					if (entry.isIntersecting) {
-						activeHref = `#${entry.target.id}`;
-					}
+					if (entry.isIntersecting) activeHref = `#${entry.target.id}`;
 				}
 			},
-			{ rootMargin: '-30% 0px -60% 0px', threshold: 0.05 }
+			{ rootMargin: '-25% 0px -65% 0px', threshold: 0.05 }
 		);
 
 		for (const section of sections) observer.observe(section);
@@ -35,52 +43,67 @@
 	});
 </script>
 
-<header
-	class="sticky top-0 z-40 border-b border-[var(--color-line)] bg-[var(--color-nav-bg)] backdrop-blur-xl"
->
-	<nav class="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-4 md:px-10">
-		<a
-			href="#home"
-			class="text-sm font-medium tracking-tight text-[var(--color-text)] transition-colors hover:text-[var(--color-accent-strong)]"
-		>
-			Edward King<span class="text-[var(--color-accent)]">.</span>
+<svelte:window onkeydown={handleKeydown} />
+
+<header class="site-header">
+	<nav class="nav-shell" aria-label="Primary navigation">
+		<a href="#home" class="brand" onclick={() => closeMenu()}>
+			<span class="brand-mark">EK</span>
+			<span><strong>Edward King</strong><small>Systems engineer</small></span>
 		</a>
 
-		<ul
-			class="no-scrollbar hidden items-center gap-8 overflow-x-auto text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-muted)] md:flex"
-		>
-			{#each items as item (item.href)}
+		<ul class="desktop-nav">
+			{#each desktopItems as item (item.href)}
 				<li>
-					<a
-						href={item.href}
-						class="relative py-1 transition-colors duration-200 hover:text-[var(--color-text)]"
-						class:!text-[var(--color-text)]={activeHref === item.href}
-					>
+					<a href={item.href} aria-current={activeHref === item.href ? 'location' : undefined}>
 						{item.label}
-						<span
-							class="absolute inset-x-0 -bottom-0.5 h-px origin-left bg-[var(--color-accent)] transition-transform duration-300"
-							class:scale-x-100={activeHref === item.href}
-							class:scale-x-0={activeHref !== item.href}
-						></span>
 					</a>
 				</li>
 			{/each}
 		</ul>
 
-		<div class="ml-auto flex items-center gap-2 md:ml-0">
-			<a href="#contact" class="button-primary !px-3.5 !py-2 text-xs md:!hidden">Start a project</a>
+		<div class="nav-actions">
+			<a href="#contact" class="nav-cta" onclick={() => closeMenu()}>Contact</a>
 			<button
 				type="button"
+				class="theme-button"
 				onclick={toggleTheme}
-				class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-line)] text-[var(--color-text-soft)] transition-all duration-200 hover:border-[var(--color-accent)] hover:text-[var(--color-accent-strong)]"
-				aria-label="Toggle theme"
+				aria-label={theme === 'dark' ? 'Use light theme' : 'Use dark theme'}
+				title={theme === 'dark' ? 'Use light theme' : 'Use dark theme'}
 			>
 				{#if theme === 'dark'}
-					<Sun size={15} strokeWidth={1.75} />
+					<Sun size={18} strokeWidth={1.75} />
 				{:else}
-					<Moon size={15} strokeWidth={1.75} />
+					<Moon size={18} strokeWidth={1.75} />
 				{/if}
+			</button>
+			<button
+				bind:this={menuButton}
+				type="button"
+				class="menu-button"
+				aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+				aria-expanded={menuOpen}
+				aria-controls="mobile-navigation"
+				onclick={() => (menuOpen = !menuOpen)}
+			>
+				{#if menuOpen}<X size={21} />{:else}<Menu size={21} />{/if}
 			</button>
 		</div>
 	</nav>
+
+	{#if menuOpen}
+		<ul id="mobile-navigation" class="mobile-nav">
+			{#each items as item (item.href)}
+				<li>
+					<a
+						href={item.href}
+						aria-current={activeHref === item.href ? 'location' : undefined}
+						onclick={() => closeMenu()}
+					>
+						{item.label}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	{/if}
 </header>

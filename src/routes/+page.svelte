@@ -2,54 +2,62 @@
 	import { onMount } from 'svelte';
 	import About from '$lib/components/About.svelte';
 	import Contact from '$lib/components/Contact.svelte';
+	import Experience from '$lib/components/Experience.svelte';
+	import Expertise from '$lib/components/Expertise.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import Hero from '$lib/components/Hero.svelte';
+	import Impact from '$lib/components/Impact.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import Projects from '$lib/components/Projects.svelte';
-	import ScrollRail from '$lib/components/ScrollRail.svelte';
-	import Skills from '$lib/components/Skills.svelte';
-	import Services from '$lib/components/Services.svelte';
-	import { navItems, profile, projects, services, skillGroups, socials } from '$lib/data/site';
+	import Resume from '$lib/components/Resume.svelte';
+	import {
+		additionalWork,
+		earlierExperience,
+		experienceRoles,
+		expertiseGroups,
+		impactItems,
+		linkedInUrl,
+		navItems,
+		profile,
+		projects,
+		resumeUrl,
+		socials,
+		type Theme
+	} from '$lib/data/site';
 
-	type Theme = 'light' | 'dark';
-	let theme = $state<Theme>('light');
+	let theme = $state<Theme>('dark');
 
 	onMount(() => {
-		const savedTheme = window.localStorage.getItem('theme');
-		if (savedTheme === 'light' || savedTheme === 'dark') {
-			theme = savedTheme;
-			return;
-		}
-
-		// A warm light theme is the brand default. The toggle still respects a saved choice.
-		theme = 'light';
+		const initialTheme = document.documentElement.dataset.theme;
+		if (initialTheme === 'light' || initialTheme === 'dark') theme = initialTheme;
 	});
 
-	$effect(() => {
-		if (typeof document === 'undefined') {
-			return;
-		}
-
+	const applyTheme = (nextTheme: Theme) => {
+		theme = nextTheme;
 		document.documentElement.dataset.theme = theme;
-		window.localStorage.setItem('theme', theme);
-	});
+		try {
+			window.localStorage.setItem('theme', theme);
+		} catch {
+			// The selected theme still applies when browser storage is unavailable.
+		}
+	};
 
 	const toggleTheme = () => {
-		theme = theme === 'light' ? 'dark' : 'light';
+		applyTheme(theme === 'light' ? 'dark' : 'light');
 	};
 </script>
 
-<div class="page-shell relative min-h-screen overflow-x-clip text-[var(--color-text)]">
+<div class="page-shell">
 	<Nav items={navItems} {theme} {toggleTheme} />
-	<ScrollRail items={navItems} />
-
 	<main>
-		<Hero {profile} />
-		<Services {services} />
-		<Projects {projects} />
-		<About about={profile.about} />
-		<Skills groups={skillGroups} />
+		<Hero {profile} {resumeUrl} />
+		<About {profile} />
+		<Experience roles={experienceRoles} {earlierExperience} />
+		<Expertise groups={expertiseGroups} />
+		<Impact items={impactItems} />
+		<Projects {projects} {additionalWork} />
+		<Resume {linkedInUrl} {resumeUrl} />
 		<Contact links={socials} />
 	</main>
-	<Footer {theme} {toggleTheme} />
+	<Footer />
 </div>

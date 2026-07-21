@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+	<title id="title">Edward King - Security Systems and Solutions Engineer</title>
+	<desc id="desc">Edward King's engineering portfolio, spanning physical systems through software.</desc>
+	<defs>
+		<radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(865 25) rotate(109) scale(525 730)" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#286747" stop-opacity=".72" />
+			<stop offset=".52" stop-color="#10251a" stop-opacity=".32" />
+			<stop offset="1" stop-color="#070a08" stop-opacity="0" />
+		</radialGradient>
+		<linearGradient id="signal" x1="0" y1="0" x2="1" y2="1">
+			<stop stop-color="#78f6b8" />
+			<stop offset="1" stop-color="#32c47c" />
+		</linearGradient>
+		<pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+			<path d="M44 0H0V44" fill="none" stroke="#c8e6d2" stroke-opacity=".055" />
+		</pattern>
+	</defs>
+	<rect width="1200" height="630" fill="#070a08" />
+	<rect width="1200" height="630" fill="url(#glow)" />
+	<rect width="1200" height="630" fill="url(#grid)" />
+	<rect x="70" y="62" width="1060" height="506" rx="26" fill="#0d1410" fill-opacity=".76" stroke="#c8e6d2" stroke-opacity=".14" />
+	<rect x="96" y="88" width="58" height="58" rx="13" fill="url(#signal)" />
+	<text x="125" y="126" text-anchor="middle" fill="#06140d" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="750" letter-spacing="1">EK</text>
+	<circle cx="1091" cy="104" r="6" fill="#6eefb0" />
+	<text x="1071" y="110" text-anchor="end" fill="#8b9b92" font-family="SFMono-Regular, Menlo, monospace" font-size="16" letter-spacing="1.4">SYSTEM PATH ACTIVE</text>
+	<text x="96" y="281" fill="#edf5ef" font-family="Inter, Arial, sans-serif" font-size="82" font-weight="650" letter-spacing="-4">Edward King</text>
+	<text x="96" y="343" fill="#6eefb0" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="570">Security systems engineer</text>
+	<text x="96" y="390" fill="#a8b5ad" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="480">Physical systems, infrastructure, software, and operations.</text>
+	<line x1="96" y1="477" x2="1098" y2="477" stroke="#c8e6d2" stroke-opacity=".14" />
+	<g font-family="SFMono-Regular, Menlo, monospace" font-size="15" font-weight="600" letter-spacing="1.5">
+		<circle cx="103" cy="519" r="6" fill="#6eefb0" />
+		<text x="121" y="525" fill="#a8b5ad">PHYSICAL</text>
+		<line x1="225" y1="519" x2="279" y2="519" stroke="#3dd68c" stroke-opacity=".55" />
+		<circle cx="286" cy="519" r="6" fill="#3dd68c" />
+		<text x="304" y="525" fill="#a8b5ad">INFRASTRUCTURE</text>
+		<line x1="470" y1="519" x2="524" y2="519" stroke="#3dd68c" stroke-opacity=".55" />
+		<circle cx="531" cy="519" r="6" fill="#3dd68c" />
+		<text x="549" y="525" fill="#a8b5ad">SOFTWARE</text>
+		<line x1="647" y1="519" x2="701" y2="519" stroke="#3dd68c" stroke-opacity=".55" />
+		<circle cx="708" cy="519" r="6" fill="#3dd68c" />
+		<text x="726" y="525" fill="#a8b5ad">OPERATIONS</text>
+	</g>
+</svg>

@@ -1,60 +1,143 @@
 <script lang="ts">
 	import { ArrowUpRight } from '@lucide/svelte';
-	import { reveal } from '$lib/actions/reveal';
 	import type { SocialLink } from '$lib/data/site';
 
+	type ContactField = 'name' | 'email' | 'message';
+	type ContactResponse = {
+		success: boolean;
+		error?: string;
+		fields?: Partial<Record<ContactField, string>>;
+	};
+
 	let { links } = $props<{ links: SocialLink[] }>();
-	const linkedinHref = $derived(
-		links.find((link: SocialLink) => link.platform === 'linkedin')?.href ?? '#'
-	);
+	let status = $state<'idle' | 'sending' | 'success' | 'error'>('idle');
+	let feedback = $state('');
+	let fieldErrors = $state<Partial<Record<ContactField, string>>>({});
+
+	const submitContact = async (event: SubmitEvent) => {
+		event.preventDefault();
+		const form = event.currentTarget as HTMLFormElement;
+		status = 'sending';
+		feedback = '';
+		fieldErrors = {};
+
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				body: new FormData(form),
+				headers: { accept: 'application/json' }
+			});
+			const payload = (await response.json().catch(() => null)) as ContactResponse | null;
+
+			if (!response.ok || !payload?.success) {
+				status = 'error';
+				fieldErrors = payload?.fields ?? {};
+				feedback = payload?.error ?? 'The message could not be sent. Please try again.';
+				return;
+			}
+
+			form.reset();
+			status = 'success';
+			feedback = 'Thanks — your message was sent successfully. I’ll get back to you soon.';
+		} catch {
+			status = 'error';
+			feedback = 'The message could not be sent. Please try again or connect with me on LinkedIn.';
+		}
+	};
 </script>
 
-<section id="contact" class="mx-auto w-full max-w-6xl px-6 py-24 md:px-10 md:py-32">
-	<div use:reveal class="hairline mb-16"></div>
-
-	<div
-		class="contact-panel grid gap-12 rounded-2xl border border-[var(--color-line)] p-7 md:grid-cols-[1.2fr_0.8fr] md:gap-16 md:p-12 lg:p-16"
-	>
-		<div use:reveal class="space-y-8">
-			<p class="section-label">Have a project in mind?</p>
-			<h2 class="section-heading max-w-xl">Let's make the next step clear.</h2>
-			<p class="content-measure text-base leading-relaxed text-[var(--color-text-soft)] md:text-lg">
-				Tell me what you are building, what is getting in the way, and where you want to go. I will
-				reply with practical next steps—no jargon or hard sell.
+<section id="contact" class="section-shell contact-section">
+	<p class="section-kicker">Contact</p>
+	<div class="contact-layout">
+		<div class="contact-intro">
+			<h2>Let&apos;s discuss the work.</h2>
+			<p>
+				I am open to conversations about security engineering, solutions engineering, technical
+				leadership, software roles, and selected freelance opportunities.
 			</p>
-			<a href={linkedinHref} target="_blank" rel="noopener noreferrer" class="button-primary">
-				<span>Discuss a project</span><ArrowUpRight size={15} strokeWidth={1.75} />
-			</a>
-		</div>
-
-		<div use:reveal={{ delay: 120 }} class="space-y-6">
-			<p class="section-label">Find me online</p>
-
-			<ul class="grid grid-cols-1 gap-3">
-				{#each links as link, index (link.href)}
+			<ul class="contact-links" aria-label="Other ways to connect">
+				{#each links as link (link.href)}
 					<li>
-						<a
-							href={link.href}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="group relative flex h-full flex-col justify-between gap-6 rounded-lg border border-[var(--color-line)] p-5 transition-all duration-300 hover:border-[var(--color-accent)] hover:bg-[var(--color-accent-soft)]"
-							use:reveal={{ delay: 160 + 60 * index }}
-						>
-							<div class="flex items-start justify-between">
-								<span class="text-sm font-medium tracking-tight text-[var(--color-text)]">
-									{link.label}
-								</span>
-								<ArrowUpRight
-									size={15}
-									strokeWidth={1.5}
-									class="text-[var(--color-muted)] transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[var(--color-accent-strong)]"
-								/>
-							</div>
-							<span class="text-xs text-[var(--color-muted)]">{link.handle}</span>
+						<a href={link.href} target="_blank" rel="noopener noreferrer">
+							{link.label}<ArrowUpRight size={14} />
 						</a>
 					</li>
 				{/each}
 			</ul>
 		</div>
+
+		<form class="contact-form" aria-busy={status === 'sending'} onsubmit={submitContact}>
+			<div class="contact-field">
+				<label for="contact-name">Name</label>
+				<input
+					id="contact-name"
+					name="name"
+					type="text"
+					autocomplete="name"
+					minlength="2"
+					maxlength="80"
+					required
+					aria-invalid={fieldErrors.name ? 'true' : undefined}
+					aria-describedby={fieldErrors.name ? 'contact-name-error' : undefined}
+				/>
+				{#if fieldErrors.name}<p id="contact-name-error" class="contact-field-error">
+						{fieldErrors.name}
+					</p>{/if}
+			</div>
+
+			<div class="contact-field">
+				<label for="contact-email">Email</label>
+				<input
+					id="contact-email"
+					name="email"
+					type="email"
+					autocomplete="email"
+					maxlength="254"
+					required
+					aria-invalid={fieldErrors.email ? 'true' : undefined}
+					aria-describedby={fieldErrors.email ? 'contact-email-error' : undefined}
+				/>
+				{#if fieldErrors.email}<p id="contact-email-error" class="contact-field-error">
+						{fieldErrors.email}
+					</p>{/if}
+			</div>
+
+			<div class="contact-field">
+				<label for="contact-message">Message</label>
+				<textarea
+					id="contact-message"
+					name="message"
+					rows="6"
+					minlength="20"
+					maxlength="4000"
+					required
+					aria-invalid={fieldErrors.message ? 'true' : undefined}
+					aria-describedby={fieldErrors.message ? 'contact-message-error' : undefined}></textarea>
+				{#if fieldErrors.message}<p id="contact-message-error" class="contact-field-error">
+						{fieldErrors.message}
+					</p>{/if}
+			</div>
+
+			<div class="contact-honeypot" hidden>
+				<label for="contact-website">Website</label>
+				<input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+			</div>
+
+			<div class="contact-submit-row">
+				<button class="contact-submit" type="submit" disabled={status === 'sending'}>
+					{status === 'sending' ? 'Sending…' : 'Send message'}
+					{#if status !== 'sending'}<ArrowUpRight size={16} />{/if}
+				</button>
+				{#if feedback}
+					<p
+						class:contact-feedback-success={status === 'success'}
+						class="contact-feedback"
+						aria-live="polite"
+					>
+						{feedback}
+					</p>
+				{/if}
+			</div>
+		</form>
 	</div>
 </section>
