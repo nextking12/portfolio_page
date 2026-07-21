@@ -24,14 +24,16 @@
 				{#if project.image}
 					<div class="project-image">
 						<div class="project-image-label" aria-hidden="true">
-							<span>Output monitor</span><span
-								>0{index + 1} / {projects.length.toString().padStart(2, '0')}</span
-							>
+							{String(index + 1).padStart(2, '0')} · {project.category}
 						</div>
 						<img
 							src={project.image}
 							alt={project.imageAlt ?? ''}
+							width="1440"
+							height="900"
 							loading={index === 0 ? 'eager' : 'lazy'}
+							fetchpriority={index === 0 ? 'high' : 'auto'}
+							decoding="async"
 						/>
 					</div>
 				{/if}

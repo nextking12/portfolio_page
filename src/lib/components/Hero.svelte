@@ -8,14 +8,14 @@
 </script>
 
 <section id="home" class="hero-shell">
-	<div class="hero-status" aria-label="Profile status">
-		<span><i aria-hidden="true"></i> Profile record // Rev. 2026</span>
-		<span>Domain: physical security + software</span>
+	<div class="hero-status" aria-label="Availability">
+		<i aria-hidden="true"></i>
+		<span>Open to engineering conversations</span>
 	</div>
 	<div class="hero-layout">
 		<div class="hero-title-block">
-			<p class="eyebrow">Edward King / Engineering across the system boundary</p>
-			<h1>{primaryRole}</h1>
+			<p class="eyebrow">Edward King · Security systems + software</p>
+			<h1><span>{primaryRole}</span></h1>
 		</div>
 		<div class="hero-summary">
 			<p>{profile.lead}</p>

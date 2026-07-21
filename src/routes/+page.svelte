@@ -25,21 +25,25 @@
 		type Theme
 	} from '$lib/data/site';
 
-	let theme = $state<Theme>('light');
+	let theme = $state<Theme>('dark');
 
 	onMount(() => {
-		const savedTheme = window.localStorage.getItem('theme');
-		if (savedTheme === 'light' || savedTheme === 'dark') theme = savedTheme;
+		const initialTheme = document.documentElement.dataset.theme;
+		if (initialTheme === 'light' || initialTheme === 'dark') theme = initialTheme;
 	});
 
-	$effect(() => {
-		if (typeof document === 'undefined') return;
+	const applyTheme = (nextTheme: Theme) => {
+		theme = nextTheme;
 		document.documentElement.dataset.theme = theme;
-		window.localStorage.setItem('theme', theme);
-	});
+		try {
+			window.localStorage.setItem('theme', theme);
+		} catch {
+			// The selected theme still applies when browser storage is unavailable.
+		}
+	};
 
 	const toggleTheme = () => {
-		theme = theme === 'light' ? 'dark' : 'light';
+		applyTheme(theme === 'light' ? 'dark' : 'light');
 	};
 </script>
 

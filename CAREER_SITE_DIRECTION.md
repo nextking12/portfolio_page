@@ -58,4 +58,4 @@ Other projects:
 
 ## Visual Style
 
-Professional, clean, responsive. Avoid flashy portfolio effects.
+Dark-first, product-marketing clarity inspired by modern infra sites (e.g. Neon): soft accent glow, rounded cards, generous spacing, restrained motion. Not a clone — keep a distinct career identity. Avoid CRT/scanline chrome and heavy industrial borders.

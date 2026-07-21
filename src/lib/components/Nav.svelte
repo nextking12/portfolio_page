@@ -10,6 +10,19 @@
 	}>();
 	let activeHref = $state('#home');
 	let menuOpen = $state(false);
+	let menuButton: HTMLButtonElement;
+	const desktopItems = $derived(
+		items.filter((item: NavItem) => item.href !== '#home' && item.href !== '#contact')
+	);
+
+	const closeMenu = (restoreFocus = false) => {
+		menuOpen = false;
+		if (restoreFocus) menuButton?.focus();
+	};
+
+	const handleKeydown = (event: KeyboardEvent) => {
+		if (event.key === 'Escape' && menuOpen) closeMenu(true);
+	};
 
 	onMount(() => {
 		const sections = items
@@ -30,15 +43,17 @@
 	});
 </script>
 
+<svelte:window onkeydown={handleKeydown} />
+
 <header class="site-header">
 	<nav class="nav-shell" aria-label="Primary navigation">
-		<a href="#home" class="brand" onclick={() => (menuOpen = false)}>
+		<a href="#home" class="brand" onclick={() => closeMenu()}>
 			<span class="brand-mark">EK</span>
-			<span><strong>Edward King</strong><small>Systems + software</small></span>
+			<span><strong>Edward King</strong><small>Systems engineer</small></span>
 		</a>
 
 		<ul class="desktop-nav">
-			{#each items as item (item.href)}
+			{#each desktopItems as item (item.href)}
 				<li>
 					<a href={item.href} aria-current={activeHref === item.href ? 'location' : undefined}>
 						{item.label}
@@ -48,11 +63,13 @@
 		</ul>
 
 		<div class="nav-actions">
+			<a href="#contact" class="nav-cta" onclick={() => closeMenu()}>Contact</a>
 			<button
 				type="button"
 				class="theme-button"
 				onclick={toggleTheme}
-				aria-label="Toggle color theme"
+				aria-label={theme === 'dark' ? 'Use light theme' : 'Use dark theme'}
+				title={theme === 'dark' ? 'Use light theme' : 'Use dark theme'}
 			>
 				{#if theme === 'dark'}
 					<Sun size={18} strokeWidth={1.75} />
@@ -61,6 +78,7 @@
 				{/if}
 			</button>
 			<button
+				bind:this={menuButton}
 				type="button"
 				class="menu-button"
 				aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
@@ -80,7 +98,7 @@
 					<a
 						href={item.href}
 						aria-current={activeHref === item.href ? 'location' : undefined}
-						onclick={() => (menuOpen = false)}
+						onclick={() => closeMenu()}
 					>
 						{item.label}
 					</a>
