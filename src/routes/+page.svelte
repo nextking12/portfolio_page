@@ -12,7 +12,6 @@
 	import Resume from '$lib/components/Resume.svelte';
 	import {
 		additionalWork,
-		contactEmail,
 		earlierExperience,
 		experienceRoles,
 		expertiseGroups,
@@ -54,7 +53,7 @@
 		<Impact items={impactItems} />
 		<Projects {projects} {additionalWork} />
 		<Resume {linkedInUrl} {resumeUrl} />
-		<Contact links={socials} email={contactEmail} />
+		<Contact links={socials} />
 	</main>
 	<Footer />
 </div>

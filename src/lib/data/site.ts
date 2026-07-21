@@ -265,5 +265,3 @@ export const socials: SocialLink[] = [
 	{ label: 'LinkedIn', href: linkedInUrl },
 	{ label: 'GitHub', href: 'https://github.com/nextking12' }
 ];
-
-export const contactEmail = 'hello@ecking.dev';
