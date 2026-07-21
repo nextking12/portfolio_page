@@ -10,7 +10,6 @@
 <section id="home" class="hero-shell">
 	<div class="hero-layout">
 		<div class="hero-title-block">
-			<p class="eyebrow">Edward King · Security systems + software</p>
 			<h1><span>{primaryRole}</span></h1>
 		</div>
 		<div class="hero-summary">

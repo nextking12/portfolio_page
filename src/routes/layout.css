@@ -341,7 +341,6 @@ section[id] {
 	gap: 2rem;
 }
 
-.eyebrow,
 .section-kicker {
 	color: var(--color-signal);
 	font-size: 0.78rem;
@@ -352,7 +351,7 @@ section[id] {
 
 .hero-title-block h1 {
 	max-width: 10ch;
-	margin-top: 0.85rem;
+	margin-top: 0;
 	font-size: clamp(4rem, 9vw, 8rem);
 	font-family: var(--font-display);
 	font-weight: 400;
