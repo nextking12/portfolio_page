@@ -383,7 +383,7 @@ section[id] {
 	font-family: var(--font-display);
 	font-weight: 400;
 	letter-spacing: -0.035em;
-	line-height: 0.96;
+	line-height: 1.14;
 }
 
 .hero-title-block h1 span {
