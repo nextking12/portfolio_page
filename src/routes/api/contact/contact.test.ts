@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { resetRateLimitStore } from '$lib/server/rate-limit';
 
 const { sendMock } = vi.hoisted(() => ({ sendMock: vi.fn() }));
 
@@ -18,28 +19,38 @@ vi.mock('resend', () => ({
 
 import { POST } from './+server';
 
-const makeRequest = (fields: Record<string, string>) => {
-	const formData = new FormData();
-	for (const [key, value] of Object.entries(fields)) formData.set(key, value);
-	return new Request('http://localhost/api/contact', { method: 'POST', body: formData });
+const validFields = {
+	name: 'Ada Lovelace',
+	email: 'ADA@example.com',
+	message: 'I would like to discuss a new website project.',
+	website: ''
 };
 
-const submit = (fields: Record<string, string>) =>
-	POST({ request: makeRequest(fields) } as Parameters<typeof POST>[0]);
+const makeRequest = (fields: Record<string, string>, init: RequestInit = {}) => {
+	const formData = new FormData();
+	for (const [key, value] of Object.entries(fields)) formData.set(key, value);
+	return new Request('http://localhost/api/contact', {
+		method: 'POST',
+		body: formData,
+		...init
+	});
+};
+
+const submit = (fields: Record<string, string>, clientAddress = '127.0.0.1') =>
+	POST({
+		request: makeRequest(fields),
+		getClientAddress: () => clientAddress
+	} as Parameters<typeof POST>[0]);
 
 describe('POST /api/contact', () => {
 	beforeEach(() => {
 		sendMock.mockReset();
 		sendMock.mockResolvedValue({ data: { id: 'email_123' }, error: null });
+		resetRateLimitStore();
 	});
 
 	it('sends a validated inquiry with the visitor as the reply-to address', async () => {
-		const response = await submit({
-			name: 'Ada Lovelace',
-			email: 'ADA@example.com',
-			message: 'I would like to discuss a new website project.',
-			website: ''
-		});
+		const response = await submit(validFields);
 
 		expect(response.status).toBe(200);
 		await expect(response.json()).resolves.toEqual({ success: true });
@@ -89,7 +100,10 @@ describe('POST /api/contact', () => {
 			headers: { 'content-length': '50001', 'content-type': 'text/plain' }
 		});
 
-		const response = await POST({ request } as Parameters<typeof POST>[0]);
+		const response = await POST({
+			request,
+			getClientAddress: () => '127.0.0.1'
+		} as Parameters<typeof POST>[0]);
 
 		expect(response.status).toBe(413);
 		await expect(response.json()).resolves.toEqual({
@@ -97,6 +111,56 @@ describe('POST /api/contact', () => {
 			error: 'The submitted message is too large.'
 		});
 		expect(sendMock).not.toHaveBeenCalled();
+	});
+
+	it('rejects invalid content-length values', async () => {
+		const request = new Request('http://localhost/api/contact', {
+			method: 'POST',
+			body: 'bad',
+			headers: { 'content-length': 'nope', 'content-type': 'application/x-www-form-urlencoded' }
+		});
+
+		const response = await POST({
+			request,
+			getClientAddress: () => '127.0.0.1'
+		} as Parameters<typeof POST>[0]);
+
+		expect(response.status).toBe(413);
+		expect(sendMock).not.toHaveBeenCalled();
+	});
+
+	it('rejects unsupported content types', async () => {
+		const request = new Request('http://localhost/api/contact', {
+			method: 'POST',
+			body: JSON.stringify(validFields),
+			headers: { 'content-type': 'application/json' }
+		});
+
+		const response = await POST({
+			request,
+			getClientAddress: () => '127.0.0.1'
+		} as Parameters<typeof POST>[0]);
+
+		expect(response.status).toBe(415);
+		expect(sendMock).not.toHaveBeenCalled();
+	});
+
+	it('rate limits repeated valid submissions from the same client', async () => {
+		const ip = '203.0.113.10';
+
+		for (let i = 0; i < 5; i += 1) {
+			const allowed = await submit(validFields, ip);
+			expect(allowed.status).toBe(200);
+		}
+
+		const limited = await submit(validFields, ip);
+		expect(limited.status).toBe(429);
+		expect(limited.headers.get('retry-after')).toEqual(expect.any(String));
+		await expect(limited.json()).resolves.toEqual({
+			success: false,
+			error: 'Too many messages were sent recently. Please try again later.'
+		});
+		expect(sendMock).toHaveBeenCalledTimes(5);
 	});
 
 	it('returns a generic error when Resend rejects the message', async () => {

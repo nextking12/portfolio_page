@@ -15,6 +15,7 @@
 	let fieldErrors = $state<Partial<Record<ContactField, string>>>({});
 
 	const submitContact = async (event: SubmitEvent) => {
+		event.preventDefault();
 		const form = event.currentTarget as HTMLFormElement;
 		status = 'sending';
 		feedback = '';

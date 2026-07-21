@@ -34,6 +34,16 @@ pnpm install
 pnpm dev
 ```
 
+## Contact form
+
+Copy `.env.example` to `.env.local` and set Resend values before testing submissions:
+
+- `RESEND_API_KEY`
+- `CONTACT_TO_EMAIL`
+- `RESEND_FROM_EMAIL`
+
+The API applies validation, a honeypot, and an in-process IP rate limit (5 / 15 min, 20 / day). Limits are best-effort on serverless (per instance, reset on cold start).
+
 ## Validation
 
 ```sh
