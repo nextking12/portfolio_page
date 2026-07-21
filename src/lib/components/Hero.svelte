@@ -8,10 +8,6 @@
 </script>
 
 <section id="home" class="hero-shell">
-	<div class="hero-status" aria-label="Availability">
-		<i aria-hidden="true"></i>
-		<span>Open to engineering conversations</span>
-	</div>
 	<div class="hero-layout">
 		<div class="hero-title-block">
 			<p class="eyebrow">Edward King · Security systems + software</p>

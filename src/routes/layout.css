@@ -360,36 +360,6 @@ section[id] {
 	opacity: 0.35;
 }
 
-.hero-status {
-	display: inline-flex;
-	width: fit-content;
-	align-items: center;
-	gap: 0.55rem;
-	margin-bottom: clamp(1.75rem, 4vw, 2.75rem);
-	border: 1px solid color-mix(in srgb, var(--color-accent) 35%, var(--color-line));
-	border-radius: var(--radius-pill);
-	background: var(--color-accent-soft);
-	padding: 0.4rem 0.85rem 0.4rem 0.55rem;
-	color: var(--color-accent-strong);
-	font-size: 0.78rem;
-	font-weight: 550;
-}
-
-.hero-status i {
-	width: 0.45rem;
-	height: 0.45rem;
-	border-radius: 50%;
-	background: var(--color-accent);
-	box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-accent) 22%, transparent);
-	animation: signal-pulse 2.4s ease-in-out infinite;
-}
-
-@keyframes signal-pulse {
-	50% {
-		box-shadow: 0 0 0 0.4rem color-mix(in srgb, var(--color-accent) 8%, transparent);
-	}
-}
-
 .hero-layout {
 	display: grid;
 	gap: 2rem;
