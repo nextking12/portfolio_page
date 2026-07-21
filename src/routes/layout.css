@@ -1,4 +1,5 @@
 @import '@fontsource-variable/inter';
+@import '@fontsource/instrument-serif';
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
@@ -59,6 +60,7 @@
 
 @theme {
 	--font-sans: 'Inter Variable', 'Inter', 'Avenir Next', 'Segoe UI', sans-serif;
+	--font-display: 'Instrument Serif', 'Iowan Old Style', 'Times New Roman', serif;
 	--font-mono: 'SFMono-Regular', Menlo, Monaco, 'Cascadia Code', 'Liberation Mono', monospace;
 }
 
@@ -378,9 +380,10 @@ section[id] {
 	max-width: 13ch;
 	margin-top: 0.85rem;
 	font-size: clamp(3rem, 7.2vw, 5.6rem);
-	font-weight: 620;
-	letter-spacing: -0.055em;
-	line-height: 1.02;
+	font-family: var(--font-display);
+	font-weight: 400;
+	letter-spacing: -0.035em;
+	line-height: 0.96;
 }
 
 .hero-title-block h1 span {
@@ -642,10 +645,11 @@ section[id] {
 .resume-layout h2,
 .contact-layout h2 {
 	max-width: 18ch;
-	font-size: clamp(1.9rem, 4vw, 3.15rem);
-	font-weight: 600;
-	letter-spacing: -0.04em;
-	line-height: 1.08;
+	font-size: clamp(2.2rem, 4.5vw, 3.65rem);
+	font-family: var(--font-display);
+	font-weight: 400;
+	letter-spacing: -0.025em;
+	line-height: 1;
 }
 
 .section-intro > p {
