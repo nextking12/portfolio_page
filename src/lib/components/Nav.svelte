@@ -49,7 +49,7 @@
 	<nav class="nav-shell" aria-label="Primary navigation">
 		<a href="#home" class="brand" onclick={() => closeMenu()}>
 			<span class="brand-mark">EK</span>
-			<span><strong>Edward King</strong><small>Systems engineer</small></span>
+			<span><strong>Edward King</strong><small>Software developer</small></span>
 		</a>
 
 		<ul class="desktop-nav">

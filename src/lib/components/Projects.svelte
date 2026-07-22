@@ -6,15 +6,16 @@
 		projects: Project[];
 		additionalWork: AdditionalWork[];
 	}>();
+	const romanNumerals = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 </script>
 
 <section id="projects" class="section-shell">
-	<p class="section-kicker">Applied Engineering</p>
+	<p class="section-kicker">Selected Projects</p>
 	<div class="section-intro">
-		<h2>Software shaped by real operational context.</h2>
+		<h2>Real ideas, thoughtfully brought to life.</h2>
 		<p>
-			Selected work that demonstrates full-stack execution, technical decision-making, and the
-			connection between security-domain experience and software engineering.
+			A selection of applications, learning tools, and client work designed to make complex things
+			feel simple and useful.
 		</p>
 	</div>
 
@@ -24,7 +25,7 @@
 				{#if project.image}
 					<div class="project-image">
 						<div class="project-image-label" aria-hidden="true">
-							{String(index + 1).padStart(2, '0')} · {project.category}
+							<span class="project-index">{romanNumerals[index]}</span> · {project.category}
 						</div>
 						<img
 							src={project.image}
@@ -38,6 +39,9 @@
 					</div>
 				{/if}
 				<div class="project-content">
+					<span class="project-card-number" aria-hidden="true">
+						{romanNumerals[index]}
+					</span>
 					<p class="project-category">{project.category}</p>
 					<h3>{project.title}</h3>
 					<p class="project-description">{project.description}</p>
@@ -76,7 +80,7 @@
 	<div class="additional-work">
 		<div>
 			<p class="section-kicker">Additional work</p>
-			<h3>Other areas of applied practice</h3>
+			<h3>More things I build</h3>
 		</div>
 		<ul>
 			{#each additionalWork as item (item.title)}

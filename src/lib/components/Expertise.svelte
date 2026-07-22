@@ -4,13 +4,13 @@
 	let { groups } = $props<{ groups: ExpertiseGroup[] }>();
 </script>
 
-<section id="expertise" class="section-shell">
-	<p class="section-kicker">Expertise</p>
+<section id="services" class="section-shell">
+	<p class="section-kicker">Services</p>
 	<div class="section-intro">
-		<h2>Depth in security systems. Growing range in software.</h2>
+		<h2>Ways I can help move your idea forward.</h2>
 		<p>
-			The throughline is systems thinking: understanding how components interact, where risk
-			collects, and what people need to operate effectively.
+			Whether you need a new product, a stronger web presence, or a tool that removes repetitive
+			work, I bring a practical path from first conversation to launch.
 		</p>
 	</div>
 

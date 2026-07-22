@@ -50,10 +50,10 @@
 	<p class="section-kicker">Contact</p>
 	<div class="contact-layout">
 		<div class="contact-intro">
-			<h2>Let&apos;s discuss the work.</h2>
+			<h2>Let&apos;s build something useful.</h2>
 			<p>
-				I am open to conversations about security engineering, solutions engineering, technical
-				leadership, software roles, and selected freelance opportunities.
+				Have an idea, a workflow that needs improving, or a site that no longer fits your business?
+				Tell me a little about it and I&apos;ll be in touch.
 			</p>
 			<ul class="contact-links" aria-label="Other ways to connect">
 				{#each links as link (link.href)}

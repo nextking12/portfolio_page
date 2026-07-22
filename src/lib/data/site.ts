@@ -7,7 +7,11 @@ export type Theme = 'light' | 'dark';
 
 export type Profile = {
 	name: string;
-	headline: string;
+	headline: {
+		opening: string;
+		emphasis: string;
+		closing: string;
+	};
 	lead: string;
 	aboutLead: string;
 	about: string[];
@@ -57,28 +61,30 @@ export type SocialLink = {
 };
 
 export const linkedInUrl = 'https://www.linkedin.com/in/edward-king-jr-385114251/';
+export const githubUrl = 'https://github.com/nextking12';
 export const resumeUrl = '/Edward-King-Resume.pdf';
 
 export const navItems: NavItem[] = [
 	{ label: 'Home', href: '#home' },
-	{ label: 'About', href: '#about' },
-	{ label: 'Experience', href: '#experience' },
-	{ label: 'Expertise', href: '#expertise' },
-	{ label: 'Impact', href: '#impact' },
 	{ label: 'Projects', href: '#projects' },
-	{ label: 'Resume', href: '#resume' },
+	{ label: 'About', href: '#about' },
+	{ label: 'Services', href: '#services' },
 	{ label: 'Contact', href: '#contact' }
 ];
 
 export const profile: Profile = {
 	name: 'Edward King',
-	headline: 'Security Systems Engineer | Solutions Engineer | Technical Program Leader',
-	lead: 'I connect enterprise security, systems integration, customer-facing technical leadership, and software engineering to deliver resilient systems.',
-	aboutLead: 'I’m expanding 20+ years of security systems experience with software engineering.',
+	headline: {
+		opening: 'Ideas into',
+		emphasis: 'useful digital',
+		closing: 'products.'
+	},
+	lead: 'I help businesses and teams create thoughtful websites, applications, and tools that make work simpler.',
+	aboutLead: 'A practical development partner, from first idea to finished product.',
 	about: [
-		'My work sits where physical systems, networks, software, and people meet. For more than 20 years, I have designed, integrated, deployed, and commissioned security systems in mission-critical environments.',
-		'Software development adds another layer to that experience: the ability to build tools, understand applications end to end, and turn recurring operational problems into maintainable systems.',
-		'I am most useful in roles that need technical depth, clear communication, and ownership from discovery and architecture through implementation, validation, and delivery.'
+		'I build web products end to end, from understanding the problem and shaping the experience to developing and launching the finished product.',
+		'My background in mission-critical systems gives me a practical lens: good software should be clear, dependable, and genuinely useful to the people relying on it.',
+		'I value direct communication, sensible decisions, and a collaborative process that keeps you informed without burying you in technical detail.'
 	]
 };
 
@@ -137,34 +143,39 @@ export const earlierExperience =
 
 export const expertiseGroups: ExpertiseGroup[] = [
 	{
-		title: 'Security architecture',
+		title: 'Custom web applications',
 		items: [
-			'Enterprise reference designs',
-			'Design governance and standards',
-			'Global deployment models',
-			'Lifecycle planning'
+			'Full-stack product development',
+			'Secure user accounts',
+			'Dashboards and workflows',
+			'Responsive, accessible interfaces'
 		]
 	},
 	{
-		title: 'Security platforms',
-		items: ['Honeywell ProWatch', 'Lenel OnGuard', 'CCure 9000', 'Milestone VMS']
-	},
-	{
-		title: 'Infrastructure and integration',
+		title: 'Business websites',
 		items: [
-			'TCP/IP, VLANs, DNS and DHCP',
-			'Windows Server and Active Directory',
-			'REST APIs and SQL',
-			'AWS, VMware and Linux'
+			'Distinct visual design',
+			'Clear customer journeys',
+			'Lead capture and integrations',
+			'Fast, mobile-ready builds'
 		]
 	},
 	{
-		title: 'Software and automation',
+		title: 'Internal tools',
 		items: [
-			'Java and Spring Boot',
-			'TypeScript and React',
-			'Python and PowerShell',
-			'PostgreSQL, Docker and CI/CD'
+			'Workflow automation',
+			'Operational dashboards',
+			'Data and API integrations',
+			'Purpose-built team utilities'
+		]
+	},
+	{
+		title: 'Technical partnership',
+		items: [
+			'Project scoping',
+			'Architecture and planning',
+			'Modernization and improvements',
+			'Launch and handoff support'
 		]
 	}
 ];
@@ -198,14 +209,29 @@ export const impactItems: ImpactItem[] = [
 
 export const projects: Project[] = [
 	{
-		title: 'Physical Security Dashboard',
-		category: 'Featured application',
+		title: 'Agency Marketing Site',
+		category: 'Featured live client project',
 		description:
-			'A full-stack security operations dashboard for monitoring cameras, card readers, alarm panels, and motion sensors in one workspace.',
+			'A live production website built for a real creative agency client, with a direct path from service discovery to inquiry.',
+		approach:
+			'Built a focused branded experience without a heavy content platform or paid form dependency.',
+		outcome:
+			'Launched a distinct, mobile-ready web presence that is actively serving the client and capturing leads.',
+		tags: ['Next.js', 'TypeScript', 'Vercel'],
+		image: '/projects/smells-good.jpg',
+		imageAlt: 'Smells Good Marketing website homepage',
+		repo: 'https://github.com/nextking12/smells_good',
+		live: 'https://www.smellsgoodmktg.com'
+	},
+	{
+		title: 'Physical Security Dashboard',
+		category: 'Full-stack application',
+		description:
+			'A full-stack security operations dashboard shaped by 20+ years of hands-on experience with access control, video, intrusion detection, and mission-critical security environments.',
 		approach:
 			'Built an n-tier Java/Spring Boot REST API with JWT authentication and role-based access control, paired with a React frontend and PostgreSQL.',
 		outcome:
-			'Demonstrates how deep security-domain knowledge can shape secure software architecture and end-to-end product delivery.',
+			'Turns real operational workflows and two decades of domain knowledge into a focused product for monitoring physical security systems.',
 		tags: ['Java', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
 		image: '/projects/physec-dash.jpg',
 		imageAlt: 'Physical Security Dashboard sign-in screen and interactive demo entry point',
@@ -216,38 +242,24 @@ export const projects: Project[] = [
 		title: 'Physical Security Learning Platform',
 		category: 'Next.js application',
 		description:
-			'A no-login learning experience designed to make physical access control training easier to explore and complete.',
+			'A no-login learning experience that distills 20+ years of physical security systems knowledge into approachable access control training.',
 		approach:
 			'Used Next.js and TypeScript for the full stack, with Prisma and PostgreSQL for durable course content and browser-local lesson progress.',
 		outcome:
-			'Connects physical-security subject-matter expertise with modern full-stack application development.',
+			'Makes field-tested subject-matter expertise easier for newcomers and working professionals to explore at their own pace.',
 		tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma'],
 		image: '/projects/physec-learn.jpg',
 		imageAlt: 'Physical Security Learning Platform course homepage',
 		repo: 'https://github.com/nextking12/open_acs',
 		live: 'https://open-acs.vercel.app/'
-	},
-	{
-		title: 'Agency Marketing Site',
-		category: 'Next.js client project',
-		description:
-			'A custom responsive website for a creative agency with a direct path from service discovery to inquiry.',
-		approach:
-			'Built a focused branded experience without a heavy content platform or paid form dependency.',
-		outcome: 'Delivered a distinct, mobile-ready web presence with direct lead capture.',
-		tags: ['Next.js', 'TypeScript', 'Vercel'],
-		image: '/projects/smells-good.jpg',
-		imageAlt: 'Smells Good Marketing website homepage',
-		repo: 'https://github.com/nextking12/smells_good',
-		live: 'https://www.smellsgoodmktg.com'
 	}
 ];
 
 export const additionalWork: AdditionalWork[] = [
 	{
-		title: 'WordPress',
+		title: 'Web platforms',
 		description:
-			'Implementation and site improvements within established content-management workflows.'
+			'Responsive sites and improvements across custom builds and established content platforms.'
 	},
 	{
 		title: 'Automation',
@@ -255,13 +267,13 @@ export const additionalWork: AdditionalWork[] = [
 			'Python, PowerShell, REST, and SQL tools that reduce repetitive operational work and improve visibility.'
 	},
 	{
-		title: 'Design Review Assistant',
+		title: 'Product experiments',
 		description:
-			'A software concept for making technical design reviews more consistent, traceable, and actionable.'
+			'Prototypes that explore better ways to handle technical reviews, training, and operational workflows.'
 	}
 ];
 
 export const socials: SocialLink[] = [
-	{ label: 'LinkedIn', href: linkedInUrl },
-	{ label: 'GitHub', href: 'https://github.com/nextking12' }
+	{ label: 'GitHub', href: githubUrl },
+	{ label: 'LinkedIn', href: linkedInUrl }
 ];
