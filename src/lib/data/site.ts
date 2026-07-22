@@ -75,9 +75,9 @@ export const navItems: NavItem[] = [
 export const profile: Profile = {
 	name: 'Edward King',
 	headline: {
-		opening: 'Ideas into',
-		emphasis: 'useful digital',
-		closing: 'products.'
+		opening: 'Clear thinking.',
+		emphasis: 'Thoughtful engineering.',
+		closing: 'Useful products.'
 	},
 	lead: 'I help businesses and teams create thoughtful websites, applications, and tools that make work simpler.',
 	aboutLead: 'A practical development partner, from first idea to finished product.',
