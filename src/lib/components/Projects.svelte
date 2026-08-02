@@ -14,8 +14,8 @@
 	<div class="section-intro">
 		<h2>Real ideas, thoughtfully brought to life.</h2>
 		<p>
-			A selection of applications, learning tools, and client work designed to make complex things
-			feel simple and useful.
+			A selection of applications and client work designed to make complex things feel simple and
+			useful.
 		</p>
 	</div>
 

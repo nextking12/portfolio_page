@@ -1376,10 +1376,11 @@ footer {
 	}
 
 	.projects-list {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-columns: 1fr;
 	}
 
-	.projects-list .featured-project {
+	.projects-list .featured-project,
+	.projects-list .project-card {
 		grid-column: 1 / -1;
 	}
 
@@ -1823,20 +1824,14 @@ footer {
 	}
 
 	.projects-list {
-		grid-template-columns: repeat(12, minmax(0, 1fr));
+		grid-template-columns: 1fr;
+		gap: clamp(3rem, 6vw, 5rem);
 	}
 
-	.projects-list .featured-project {
-		grid-column: 1 / 12;
-	}
-
-	.projects-list .project-card:nth-child(2) {
-		grid-column: 2 / 7;
-	}
-
-	.projects-list .project-card:nth-child(3) {
-		grid-column: 7 / 13;
-		margin-top: 8rem;
+	.projects-list .featured-project,
+	.projects-list .project-card {
+		grid-column: 1 / -1;
+		margin-top: 0;
 	}
 
 	.project-card:not(.featured-project) .project-content h3 {
@@ -2132,6 +2127,14 @@ footer {
 	margin-bottom: clamp(6rem, 12vw, 12rem);
 }
 
+#projects .section-intro {
+	margin-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+#projects .additional-work {
+	margin-top: clamp(4rem, 8vw, 8rem);
+}
+
 .section-intro h2,
 .contact-layout h2 {
 	max-width: 11ch;
@@ -2154,9 +2157,7 @@ footer {
 }
 
 .projects-list .project-card,
-.projects-list .featured-project,
-.projects-list .project-card:nth-child(2),
-.projects-list .project-card:nth-child(3) {
+.projects-list .featured-project {
 	display: grid;
 	grid-column: 1;
 	margin-top: 0;
@@ -2428,9 +2429,7 @@ footer {
 	}
 
 	.projects-list .project-card,
-	.projects-list .featured-project,
-	.projects-list .project-card:nth-child(2),
-	.projects-list .project-card:nth-child(3) {
+	.projects-list .featured-project {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
@@ -2491,10 +2490,22 @@ footer {
 		grid-column: 1 / -1;
 	}
 
+	#projects .section-intro {
+		margin-bottom: clamp(3.5rem, 10vw, 6rem);
+	}
+
+	#projects .project-content {
+		padding: clamp(1.5rem, 6vw, 2.25rem);
+	}
+
 	.project-links a,
 	.contact-links li a {
 		min-height: 2.75rem;
 		align-items: center;
+	}
+
+	#projects .additional-work {
+		margin-top: clamp(3.5rem, 10vw, 6rem);
 	}
 }
 

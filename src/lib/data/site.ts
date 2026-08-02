@@ -237,21 +237,6 @@ export const projects: Project[] = [
 		imageAlt: 'Physical Security Dashboard sign-in screen and interactive demo entry point',
 		repo: 'https://github.com/nextking12/physec-dashboard',
 		live: 'https://physec-dashboard.vercel.app'
-	},
-	{
-		title: 'Physical Security Learning Platform',
-		category: 'Next.js application',
-		description:
-			'A no-login learning experience that distills 20+ years of physical security systems knowledge into approachable access control training.',
-		approach:
-			'Used Next.js and TypeScript for the full stack, with Prisma and PostgreSQL for durable course content and browser-local lesson progress.',
-		outcome:
-			'Makes field-tested subject-matter expertise easier for newcomers and working professionals to explore at their own pace.',
-		tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma'],
-		image: '/projects/physec-learn.jpg',
-		imageAlt: 'Physical Security Learning Platform course homepage',
-		repo: 'https://github.com/nextking12/open_acs',
-		live: 'https://open-acs.vercel.app/'
 	}
 ];
 
