@@ -225,13 +225,13 @@ export const projects: Project[] = [
 	},
 	{
 		title: 'Physical Security Dashboard',
-		category: 'Full-stack application',
+		category: 'Shipped full-stack product',
 		description:
-			'A full-stack security operations dashboard shaped by 20+ years of hands-on experience with access control, video, intrusion detection, and mission-critical security environments.',
+			'A live, shipped security operations dashboard—not a portfolio mock—shaped by 20+ years of hands-on experience with access control, video, intrusion detection, and mission-critical security environments.',
 		approach:
 			'Built an n-tier Java/Spring Boot REST API with JWT authentication and role-based access control, paired with a React frontend and PostgreSQL.',
 		outcome:
-			'Turns real operational workflows and two decades of domain knowledge into a focused product for monitoring physical security systems.',
+			'Deployed as a working product with real auth, role-based access, and operational workflows drawn from two decades of domain practice.',
 		tags: ['Java', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL'],
 		image: '/projects/physec-dash.jpg',
 		imageAlt: 'Physical Security Dashboard sign-in screen and interactive demo entry point',
