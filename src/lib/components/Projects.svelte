@@ -24,18 +24,28 @@
 			<article class:featured-project={index === 0} class="project-card">
 				{#if project.image}
 					<div class="project-image">
-						<div class="project-image-label" aria-hidden="true">
-							<span class="project-index">{romanNumerals[index]}</span> · {project.category}
-						</div>
-						<img
-							src={project.image}
-							alt={project.imageAlt ?? ''}
-							width="1440"
-							height="900"
-							loading={index === 0 ? 'eager' : 'lazy'}
-							fetchpriority={index === 0 ? 'high' : 'auto'}
-							decoding="async"
-						/>
+						<figure class="project-preview">
+							<div class="project-preview-chrome" aria-hidden="true">
+								<div class="project-preview-dots">
+									<span></span><span></span><span></span>
+								</div>
+								<p>
+									<span class="project-index">{romanNumerals[index]}</span>
+									· Preview
+								</p>
+							</div>
+							<div class="project-preview-screen">
+								<img
+									src={project.image}
+									alt={project.imageAlt ?? ''}
+									width="1440"
+									height="900"
+									loading={index === 0 ? 'eager' : 'lazy'}
+									fetchpriority={index === 0 ? 'high' : 'auto'}
+									decoding="async"
+								/>
+							</div>
+						</figure>
 					</div>
 				{/if}
 				<div class="project-content">
