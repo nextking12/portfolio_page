@@ -23,7 +23,7 @@
 	<meta property="og:image:type" content="image/png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
-	<meta property="og:image:alt" content="Edward King's software development portfolio" />
+	<meta property="og:image:alt" content="Edward King — Clear thinking. Thoughtful engineering. Useful products." />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta
 		name="twitter:title"
@@ -34,6 +34,6 @@
 		content="Thoughtful websites, custom applications, and practical digital tools built from idea to launch."
 	/>
 	<meta name="twitter:image" content="https://www.ecking.dev/og-image.png" />
-	<meta name="twitter:image:alt" content="Edward King's software development portfolio" />
+	<meta name="twitter:image:alt" content="Edward King — Clear thinking. Thoughtful engineering. Useful products." />
 </svelte:head>
 {@render children()}

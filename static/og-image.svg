@@ -1,23 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Edward King Portfolio Preview</title>
-  <desc id="desc">Stylized EK initials on a dark gradient background.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#050709"/>
-      <stop offset="100%" stop-color="#0c1f22"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#5ea9b1"/>
-      <stop offset="100%" stop-color="#8fd2d9"/>
-    </linearGradient>
-  </defs>
-
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect x="72" y="72" width="1056" height="486" rx="20" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="2"/>
-
-  <text x="120" y="360" fill="#ffffff" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="220" font-weight="700" letter-spacing="-6">E</text>
-  <text x="318" y="360" fill="url(#accent)" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="220" font-weight="700" letter-spacing="-6">K</text>
-
-  <text x="120" y="442" fill="#a9afb8" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="44" font-weight="500">Edward King</text>
-  <text x="120" y="492" fill="#7f8a97" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="30" font-weight="400">Software Engineer</text>
+	<title id="title">Edward King | Websites, Applications &amp; Digital Products</title>
+	<desc id="desc">Clear thinking. Thoughtful engineering. Useful products.</desc>
+	<rect width="1200" height="630" fill="#f5f1e9" />
+	<rect x="16" y="16" width="1168" height="598" fill="none" stroke="#181511" stroke-opacity=".1" />
+	<text x="56" y="78" fill="#181511" font-family="Inter, Avenir Next, Arial, sans-serif" font-size="20" font-weight="600">Edward King</text>
+	<text x="1144" y="78" text-anchor="end" fill="#766e63" font-family="Inter, Avenir Next, Arial, sans-serif" font-size="17" font-weight="500">ecking.dev</text>
+	<line x1="56" y1="100" x2="1144" y2="100" stroke="#181511" stroke-opacity=".16" />
+	<text x="56" y="168" fill="#a74420" font-family="Inter, Avenir Next, Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="1.2">WEBSITES · APPLICATIONS · DIGITAL PRODUCTS</text>
+	<text x="56" y="250" fill="#181511" font-family="Instrument Serif, Georgia, Times New Roman, serif" font-size="72" letter-spacing="-2.5">Clear thinking.</text>
+	<text x="56" y="328" fill="#181511" font-family="Instrument Serif, Georgia, Times New Roman, serif" font-size="72" font-style="italic" letter-spacing="-2.5">Thoughtful engineering.</text>
+	<text x="56" y="406" fill="#181511" font-family="Instrument Serif, Georgia, Times New Roman, serif" font-size="72" letter-spacing="-2.5">Useful products.</text>
+	<text x="56" y="462" fill="#504a42" font-family="Inter, Avenir Next, Arial, sans-serif" font-size="21">I help businesses and teams create thoughtful websites,</text>
+	<text x="56" y="492" fill="#504a42" font-family="Inter, Avenir Next, Arial, sans-serif" font-size="21">applications, and tools that make work simpler.</text>
+	<line x1="56" y1="536" x2="1144" y2="536" stroke="#181511" stroke-opacity=".16" />
+	<text x="56" y="580" fill="#766e63" font-family="Inter, Avenir Next, Arial, sans-serif" font-size="15" font-weight="500">Strategy  ·  Design  ·  Engineering</text>
+	<rect x="920" y="552" width="224" height="42" rx="21" fill="#a74420" />
+	<text x="1032" y="579" text-anchor="middle" fill="#ffffff" font-family="Inter, Avenir Next, Arial, sans-serif" font-size="15" font-weight="600">Start a conversation →</text>
 </svg>
